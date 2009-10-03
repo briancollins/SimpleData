@@ -10,7 +10,18 @@
 
 
 @interface SimpleStore : NSObject {
-
+	NSManagedObjectModel *managedObjectModel;
+    NSManagedObjectContext *managedObjectContext;	    
+    NSPersistentStoreCoordinator *persistentStoreCoordinator;
+	NSString *path;
 }
+
+- (id)initWithPath:(NSString *)p;
+
+@property (nonatomic, copy) NSString *path;
+
+@property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @end

@@ -11,7 +11,7 @@
 
 @implementation RootViewController
 
-@synthesize fetchedResultsController, managedObjectContext;
+@synthesize fetchedResultsController, store;
 
 
 #pragma mark -
@@ -200,7 +200,7 @@
 	// Create the fetch request for the entity.
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 	// Edit the entity name as appropriate.
-	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:managedObjectContext];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:[self.store managedObjectContext]];
 	[fetchRequest setEntity:entity];
 	
 	// Set the batch size to a suitable number.
@@ -214,7 +214,7 @@
 	
 	// Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-	NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
+	NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[self.store managedObjectContext] sectionNameKeyPath:nil cacheName:@"Root"];
     aFetchedResultsController.delegate = self;
 	self.fetchedResultsController = aFetchedResultsController;
 	
@@ -266,7 +266,6 @@
 
 - (void)dealloc {
 	[fetchedResultsController release];
-	[managedObjectContext release];
     [super dealloc];
 }
 
