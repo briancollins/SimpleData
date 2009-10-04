@@ -16,7 +16,10 @@
 - (void)setUp {
 	[[NSFileManager defaultManager] removeItemAtPath:@"/tmp/test.sqlite3" error:nil];
     [SimpleStore storeWithPath:@"/tmp/test.sqlite3"];
+	[Employee createWithName:@"Quincey" dateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 4th 1986"]];
 	[Employee createWithName:@"Alex" dateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 4th 1986"]];
+	[Employee createWithName:@"Luna" dateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 4th 1986"]];
+
 }
 
 - (void)testCreateObject {
@@ -53,5 +56,22 @@
 	STAssertNotNULL([Employee findByEmail:@"alex@example.com"], "The updated employee should be findable");
 }
 
+- (void)testFindAllBy {
+	NSArray *employees = [Employee findAllByDateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 4th 1986"]];
+	STAssertTrue([employees count] == 3, @"number of employees found should be 3");
+}
+
+- (void)testFindAllSortBy {
+	NSArray *employees = [Employee findAllByDateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 4th 1986"] sortBy:@"name"];
+	STAssertTrue([employees count] == 3, @"number of employees found should be 3");
+	Employee *lastEmployee = nil;
+	for (Employee *e in employees) {
+		if (lastEmployee) {
+			STAssertTrue([lastEmployee.name compare:e.name] == NSOrderedAscending, @"results should be sorted by name");
+		}
+		lastEmployee = e;				 
+	}
+
+}
 
 @end

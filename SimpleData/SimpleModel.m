@@ -12,19 +12,6 @@
 
 @implementation SimpleModel
 
-+ (NSMethodSignature *)methodSignatureForSelector:(SEL)selector
-{
-	if ([self respondsToSelector:selector]) {
-		return [super methodSignatureForSelector:selector];
-	} else {
-		if ([NSStringFromSelector(selector)	rangeOfString:@"findBy"].location == 0) 
-			return [super methodSignatureForSelector:@selector(find: inColumn:)];
-		else if ([NSStringFromSelector(selector) rangeOfString:@"createWith"].location == 0)
-			return [super methodSignatureForSelector:@selector(createWithAttributes:a:b:c:d:e:)];			
-		else
-			return [super methodSignatureForSelector:selector];
-	}	
-}
 
 + (NSArray *)findAll {
 	return [self findWithPredicate: [NSPredicate predicateWithFormat:@"1 = 1"]
@@ -62,11 +49,43 @@
 	
 }
 
++ (NSArray *)findAll:(id)obj inColumn:(NSString *)col sortBy:(NSString *)sortCol {
+	return [self findWithPredicate: [NSPredicate predicateWithFormat:
+												[NSString stringWithFormat:@"%@ = %%@", col], obj]
+										limit: 0
+									   sortBy: sortCol];
+}
+
++ (NSMethodSignature *)methodSignatureForSelector:(SEL)selector
+{
+	if ([self respondsToSelector:selector]) {
+		return [super methodSignatureForSelector:selector];
+	} else {
+		if ([NSStringFromSelector(selector)	rangeOfString:@"findBy"].location == 0) 
+			return [super methodSignatureForSelector:@selector(find: inColumn:)];
+		else if ([NSStringFromSelector(selector) rangeOfString:@"findAllBy"].location == 0)
+			return [super methodSignatureForSelector:@selector(findAll: inColumn: sortBy:)];
+		else if ([NSStringFromSelector(selector) rangeOfString:@"createWith"].location == 0)
+			return [super methodSignatureForSelector:@selector(createWithAttributes:a:b:c:d:e:)];
+		else
+			return [super methodSignatureForSelector:selector];
+	}	
+}
+
 + (id)findWithPredicate:(NSPredicate *)predicate limit:(NSUInteger)limit {
+	return [self findWithPredicate:predicate limit:limit sortBy:@""];
+}
+
++ (id)findWithPredicate:(NSPredicate *)predicate limit:(NSUInteger)limit sortBy:(NSString *)sortCol {
 	NSManagedObjectContext *moc = [[SimpleStore currentStore] managedObjectContext];
 	NSEntityDescription *entityDescription = [NSEntityDescription
 											  entityForName:self.description inManagedObjectContext:moc];
 	NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+	
+	if ([sortCol length] > 0)
+		[request setSortDescriptors:
+		 [NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:sortCol ascending:YES] autorelease]]];
+	
 	[request setEntity:entityDescription];
 	
 	if (limit)
@@ -87,8 +106,25 @@
 		NSString *column = [selector stringByReplacingCharactersInRange:NSMakeRange(0, 6) withString:@""];
 		column = [column stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@":"]];
 		column = [column uncapitalizedString];
-		[invocation setSelector:@selector(find:inColumn:)];
+		[invocation setSelector:@selector(find: inColumn:)];
 		[invocation setArgument:&column atIndex:3];
+		[invocation invokeWithTarget:self];
+	} else if ([selector rangeOfString:@"findAllBy"].location == 0) {
+		NSArray *chunks = [[selector stringByReplacingCharactersInRange:NSMakeRange(0, 9) withString:@""] componentsSeparatedByString: @":"];
+
+		if ([[chunks objectAtIndex:1] isEqualToString:@"sortBy"]) {
+			NSString *sortBy;
+			[invocation getArgument:&sortBy atIndex:3];
+			[invocation setArgument:&sortBy atIndex:4];
+		} else {
+			NSString *empty = @"";
+			[invocation setArgument:&empty atIndex:4];
+		}
+		
+		NSString *col = [[chunks objectAtIndex:0] uncapitalizedString];
+		[invocation setArgument:&col atIndex:3];
+		
+		[invocation setSelector:@selector(findAll: inColumn: sortBy:)];
 		[invocation invokeWithTarget:self];
 	} else if ([selector rangeOfString:@"createWith"].location == 0) {
 		NSArray *chunks = [[selector stringByReplacingCharactersInRange:NSMakeRange(0, 10) withString:@""] componentsSeparatedByString: @":"];
