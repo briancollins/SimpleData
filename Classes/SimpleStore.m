@@ -12,6 +12,12 @@
 @implementation SimpleStore
 @synthesize path;
 
+SimpleStore *current;
+
++ (id)storeWithPath:(NSString *)p {
+	return current = [[SimpleStore alloc] initWithPath:p];
+}
+
 - (id)initWithPath:(NSString *)p {
 	if (self = [super init]) {
 		self.path = p;

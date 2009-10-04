@@ -8,6 +8,7 @@ _Please note_: This is just an outline of how it _should_ work. Most of what is 
 h4. Step 1: Create a data model
 * Go to  File > New File then choosing Resource > Data Model
 * Open the data model and edit it to your hearts desire
+* Tip: you might want to create date attributes called createdAt and updatedAt as they will come on handy later
 
 h4. Step 2: Create the class representations
 * In the data model editor, select classes you wish to use in your project
@@ -16,8 +17,9 @@ h4. Step 2: Create the class representations
 * Click Next. The correct location and targets should have been selected for you. Click Next to accept them.
 * You should see the Entity selection pane, with the Event entity selected. The “Generate accessors” and “Generate Objective-C 2.0 properties” options should also be selected.
 * Click Finish to generate the files.
+* In the header files for the generated classes, replace ": NSManagedObject" with ": SimpleModel"
 
-You are now ready to start coding with SimpleData
+You are now ready to start working with SimpleData
 
 h4. Step 3: Create a SimpleStore
 * First, import the SimpleStore header
@@ -36,6 +38,9 @@ h4. Step 4: Enjoy!
 u.name = @"Brian Collins";
 u.save;
 </pre>
+
+h5. Displaying SimpleData objects in a tableView
+* Subclass SDTableViewController
 
 h4. Limitations
 * Currently,

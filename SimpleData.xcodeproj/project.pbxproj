@@ -18,6 +18,9 @@
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
 		D30234971077F5A300EDF004 /* Readme.textile in Resources */ = {isa = PBXBuildFile; fileRef = D30234961077F5A300EDF004 /* Readme.textile */; };
+		D30234A61077FC8400EDF004 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D30234A51077FC8400EDF004 /* User.m */; };
+		D30234D51077FDF300EDF004 /* SDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D30234D41077FDF300EDF004 /* SDTableViewController.m */; };
+		D30234EA107817D500EDF004 /* SimpleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D30234E9107817D500EDF004 /* SimpleModel.m */; };
 		D3E864F11077DCE40079694D /* SimpleStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E864F01077DCE40079694D /* SimpleStore.m */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +41,12 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* SimpleData-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SimpleData-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D30234961077F5A300EDF004 /* Readme.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.textile; sourceTree = "<group>"; };
+		D30234A41077FC8400EDF004 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		D30234A51077FC8400EDF004 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		D30234D31077FDF300EDF004 /* SDTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTableViewController.h; sourceTree = "<group>"; };
+		D30234D41077FDF300EDF004 /* SDTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTableViewController.m; sourceTree = "<group>"; };
+		D30234E8107817D500EDF004 /* SimpleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleModel.h; sourceTree = "<group>"; };
+		D30234E9107817D500EDF004 /* SimpleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleModel.m; sourceTree = "<group>"; };
 		D3E864EF1077DCE40079694D /* SimpleStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleStore.h; sourceTree = "<group>"; };
 		D3E864F01077DCE40079694D /* SimpleStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,12 +69,18 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D30234A41077FC8400EDF004 /* User.h */,
+				D30234A51077FC8400EDF004 /* User.m */,
 				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
 				28C286E00D94DF7D0034E888 /* RootViewController.m */,
 				1D3623240D0F684500981E51 /* SimpleDataAppDelegate.h */,
 				1D3623250D0F684500981E51 /* SimpleDataAppDelegate.m */,
 				D3E864EF1077DCE40079694D /* SimpleStore.h */,
 				D3E864F01077DCE40079694D /* SimpleStore.m */,
+				D30234D31077FDF300EDF004 /* SDTableViewController.h */,
+				D30234D41077FDF300EDF004 /* SDTableViewController.m */,
+				D30234E8107817D500EDF004 /* SimpleModel.h */,
+				D30234E9107817D500EDF004 /* SimpleModel.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -197,6 +212,9 @@
 				28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */,
 				28860B770F44E54D00985440 /* SimpleData.xcdatamodel in Sources */,
 				D3E864F11077DCE40079694D /* SimpleStore.m in Sources */,
+				D30234A61077FC8400EDF004 /* User.m in Sources */,
+				D30234D51077FDF300EDF004 /* SDTableViewController.m in Sources */,
+				D30234EA107817D500EDF004 /* SimpleModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import "SimpleDataAppDelegate.h"
 #import "RootViewController.h"
 #import "SimpleStore.h"
+#import "User.h"
 
 @implementation SimpleDataAppDelegate
 
@@ -16,9 +17,13 @@
 @synthesize navigationController;
 
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {    	
+- (void)applicationDidFinishLaunching:(UIApplication *)application {    
+	[User name];
+	[User findByName: @"Brian"];
+	//[User findAll];
+
 	RootViewController *rootViewController = (RootViewController *)[navigationController topViewController];
-	rootViewController.store = [[SimpleStore alloc] initWithPath:[[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"/store.sqlite"]];
+	rootViewController.store = [SimpleStore storeWithPath:[[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"/s.sqlite"]];
 
 	[window addSubview:[navigationController view]];
     [window makeKeyAndVisible];

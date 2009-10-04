@@ -16,7 +16,10 @@
 	NSString *path;
 }
 
++ (id)storeWithPath:(NSString *)p;
++ (id)currentStore;
 - (id)initWithPath:(NSString *)p;
+
 
 @property (nonatomic, copy) NSString *path;
 
