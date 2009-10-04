@@ -11,4 +11,6 @@
 
 }
 
++ (id)createWithAttributes:(NSDictionary *)attributes;
+
 @end

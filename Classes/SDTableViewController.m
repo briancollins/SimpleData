@@ -131,7 +131,7 @@
     
 	// Configure the cell.
 	NSManagedObject *managedObject = [fetchedResultsController objectAtIndexPath:indexPath];
-	cell.textLabel.text = [[managedObject valueForKey:@"timeStamp"] description];
+	cell.textLabel.text = [[managedObject valueForKey:@"name"] description];
 	
     return cell;
 }

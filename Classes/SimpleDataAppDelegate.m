@@ -17,9 +17,12 @@
 @synthesize navigationController;
 
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {    
+- (void)applicationDidFinishLaunching:(UIApplication *)application { 
+	SimpleStore *store = [SimpleStore storeWithPath:[[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"/s.sqlite"]];
+	[User createWithEmail:@"Brian Collins" name:@"bricollins@gmail.com" updatedAt:[NSDate date]];	
+
 	RootViewController *rootViewController = (RootViewController *)[navigationController topViewController];
-	rootViewController.store = [SimpleStore storeWithPath:[[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"/s.sqlite"]];
+	rootViewController.store = store;
 	rootViewController.modelName = @"User";
 	rootViewController.sortBy = @"name";
 	
@@ -29,7 +32,7 @@
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-	
+	[[SimpleStore currentStore] save];
 }
 
 

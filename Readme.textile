@@ -29,7 +29,9 @@ h4. Step 3: Create a SimpleStore
 
 h4. Step 4: Enjoy!
 * To create an object:
-<pre>[User createWithAttributes:attributesDict];</pre>
+<pre>[User createWithAttributes:attributesDict];
+[User createWithName:@"Brian" email:@"bricollins@gmail.com"];
+[User createWithEmail:@"john@example.com" name:@"John"];</pre>
 * To find an object:
 <pre>[User findByName:@"Brian"];
 [User findAll]</pre>
@@ -47,4 +49,6 @@ h4. Limitations
 ** You may only have one SimpleStore per application.
 ** There is no validation
 ** No sorting
-** No other find conditions than equality
+** createWithX can only take up to 5 arguments due to the hack currently in place. Use createWithAttributes: for more than that
+
+
