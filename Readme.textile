@@ -3,7 +3,7 @@ h1. SimpleData
 h3. A friendly abstraction for CoreData
 
 Aim: Gain all the speed of CoreData but with a friendly, ActiveRecord style interface. 
-_Please note_: This is just an outline of how it _should_ work. Some of the below may not yet work completely.
+_Please note:_ Some of the below may not yet work completely.
 
 
 h4. Step 1: Create a data model
@@ -44,6 +44,9 @@ h4. Step 4: Enjoy!
 u.name = @"Brian Collins";
 [u save];
 </pre>
+
+h4. Running the test suite
+* Build and run with the target "Test" and watch the log output
 
 
 h4. Displaying SimpleData objects in a tableView
