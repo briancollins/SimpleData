@@ -3,7 +3,7 @@ h1. SimpleData
 h3. A friendly abstraction for CoreData
 
 Aim: Gain all the speed of CoreData but with a friendly, ActiveRecord style interface. 
-_Please note_: This is just an outline of how it _should_ work. Most of what is described below is barely implemented.
+_Please note_: This is just an outline of how it _should_ work. Some of the below may not yet work completely.
 
 
 h4. Step 1: Create a data model
@@ -42,7 +42,7 @@ h4. Step 4: Enjoy!
 * To update an object:
 <pre>User *u = [User findByName:@"Brian"];
 u.name = @"Brian Collins";
-u.save;
+[u save];
 </pre>
 
 
