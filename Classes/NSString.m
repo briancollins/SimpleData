@@ -12,11 +12,13 @@
 @implementation NSString (SimpleData)
 
 - (NSString *)uncapitalizedString {
-	char *s = [self UTF8String];
+	const char *s = [self UTF8String];
 	char *m = malloc(strlen(s));
 	strcpy(m, s);
 	m[0] = tolower(m[0]);
-	return [NSString stringWithUTF8String:m];
+	NSString *result = [NSString stringWithUTF8String:m];
+	free(m);
+	return result;
 }
 
 @end

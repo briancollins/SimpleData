@@ -89,7 +89,7 @@
 		[invocation invokeWithTarget:self];
 	} else if ([selector rangeOfString:@"createWith"].location == 0) {
 		NSArray *chunks = [[selector stringByReplacingCharactersInRange:NSMakeRange(0, 10) withString:@""] componentsSeparatedByString: @":"];
-		NSMutableDictionary *attributes = [[NSMutableDictionary alloc] initWithCapacity:[chunks count] - 1];
+		NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithCapacity:[chunks count] - 1];
 		int i = 2;
 		for (NSString *chunk in chunks) {
 			if ([chunk length] > 0) {
