@@ -10,7 +10,8 @@
 
 
 @implementation SDTableViewController
-@synthesize fetchedResultsController, store;
+@synthesize fetchedResultsController, store, modelName, sortBy;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,16 +46,16 @@
 	// Create the fetch request for the entity.
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 	// Edit the entity name as appropriate.
-	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:[self.store managedObjectContext]];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:self.modelName inManagedObjectContext:[self.store managedObjectContext]];
 	[fetchRequest setEntity:entity];
 	
 	// Set the batch size to a suitable number.
 	[fetchRequest setFetchBatchSize:20];
 	
 	// Edit the sort key as appropriate.
-	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:self.sortBy ascending:NO];
 	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-	
+//	
 	[fetchRequest setSortDescriptors:sortDescriptors];
 	
 	// Edit the section name key path and cache name if appropriate.

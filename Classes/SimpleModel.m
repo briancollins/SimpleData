@@ -29,7 +29,7 @@
 }
 
 + (id)find:(id)obj inColumn:(NSString *)col {
-	NSLog(@"finding by %@", col);
+
 }
 
 + (void)forwardInvocation:(NSInvocation *)invocation {

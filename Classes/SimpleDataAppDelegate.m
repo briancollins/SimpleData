@@ -18,13 +18,11 @@
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
-	[User name];
-	[User findByName: @"Brian"];
-	//[User findAll];
-
 	RootViewController *rootViewController = (RootViewController *)[navigationController topViewController];
 	rootViewController.store = [SimpleStore storeWithPath:[[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"/s.sqlite"]];
-
+	rootViewController.modelName = @"User";
+	rootViewController.sortBy = @"name";
+	
 	[window addSubview:[navigationController view]];
     [window makeKeyAndVisible];
 }

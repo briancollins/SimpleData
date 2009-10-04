@@ -11,11 +11,15 @@
 @interface SDTableViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
 	NSFetchedResultsController *fetchedResultsController;
 	SimpleStore *store;
+	NSString *modelName;
+	NSString *sortBy;
 }
 
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) SimpleStore *store;
+@property (nonatomic, retain) NSString *modelName;
+@property (nonatomic, retain) NSString *sortBy;
 
 @end

@@ -16,8 +16,4 @@
 @dynamic name;
 @dynamic createdAt;
 
-+ (void) name {
-	NSLog(@"foo");
-}
-
 @end
