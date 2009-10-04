@@ -11,6 +11,7 @@
 
 @implementation NSString (SimpleData)
 
+// This is not the same as lowercaseString, it only downcases the first character
 - (NSString *)uncapitalizedString {
 	const char *s = [self UTF8String];
 	char *m = malloc(strlen(s));
