@@ -5,10 +5,12 @@ h3. A friendly abstraction for CoreData
 Aim: Gain all the speed of CoreData but with a friendly, ActiveRecord style interface. 
 _Please note_: This is just an outline of how it _should_ work. Most of what is described below is barely implemented.
 
+
 h4. Step 1: Create a data model
 * Go to  File > New File then choosing Resource > Data Model
 * Open the data model and edit it to your hearts desire
 * Tip: you might want to create date attributes called createdAt and updatedAt as they will come on handy later
+
 
 h4. Step 2: Create the class representations
 * In the data model editor, select classes you wish to use in your project
@@ -21,11 +23,13 @@ h4. Step 2: Create the class representations
 
 You are now ready to start working with SimpleData
 
+
 h4. Step 3: Create a SimpleStore
 * First, import the SimpleStore header
 <pre>#import &lt;SimpleStore.h&gt;</pre>
 * To create or open an existing database simply call:
 <pre>[SimpleStore storeWithPath: @"path"];</pre>
+
 
 h4. Step 4: Enjoy!
 * To create an object:
@@ -41,8 +45,10 @@ u.name = @"Brian Collins";
 u.save;
 </pre>
 
+
 h4. Displaying SimpleData objects in a tableView
 * Subclass SDTableViewController
+
 
 h4. Limitations
 * Currently,
