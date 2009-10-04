@@ -44,49 +44,49 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 1D6058900D05DD3D006BFB54 /* SimpleData */;
+			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
 			remoteInfo = SimpleData;
 		};
 		D387539C10793ED700F290C2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D387533810793ED600F290C2 /* GTM.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = F42E086D0D199A5B00D5DDE0 /* GoogleToolboxForMac.framework */;
+			remoteGlobalIDString = F42E086D0D199A5B00D5DDE0;
 			remoteInfo = GTM;
 		};
 		D387539E10793ED700F290C2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D387533810793ED600F290C2 /* GTM.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = F48FE2640D198C1E009257D2 /* UnitTest - AppKit.octest */;
+			remoteGlobalIDString = F48FE2640D198C1E009257D2;
 			remoteInfo = "UnitTest - AppKit";
 		};
 		D38753A010793ED700F290C2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D387533810793ED600F290C2 /* GTM.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = F42E08210D19987200D5DDE0 /* UnitTest - Foundation.octest */;
+			remoteGlobalIDString = F42E08210D19987200D5DDE0;
 			remoteInfo = "UnitTest - Foundation";
 		};
 		D38753A210793ED700F290C2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D387533810793ED600F290C2 /* GTM.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 8B45A0280DA4696C001148C5 /* UnitTest - UnitTesting.octest */;
+			remoteGlobalIDString = 8B45A0280DA4696C001148C5;
 			remoteInfo = "UnitTest - UnitTesting";
 		};
 		D38753A410793ED700F290C2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D387533810793ED600F290C2 /* GTM.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 8B45A28A0DA49B99001148C5 /* GTMUIUnitTestingHarness.app */;
+			remoteGlobalIDString = 8B45A28A0DA49B99001148C5;
 			remoteInfo = UIUnitTestingHarness;
 		};
 		D38753AC10793ED700F290C2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D387533E10793ED600F290C2 /* GTMiPhone.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 1D6058910D05DD3D006BFB54 /* GTMiPhoneTest.app */;
+			remoteGlobalIDString = 1D6058910D05DD3D006BFB54;
 			remoteInfo = GTMiPhoneUnitTesting;
 		};
 /* End PBXContainerItemProxy section */
