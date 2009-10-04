@@ -45,5 +45,11 @@
 	STAssertNULL(employee, @"Employee should not be found");	
 }
 
+- (void)testUpdateEmployee {
+	Employee *employee = [Employee findByName:@"Alex"];
+	employee.email = @"alex@example.com";
+	[employee save];
+}
+
 
 @end

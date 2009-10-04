@@ -16,4 +16,6 @@
 + (id)findAll;
 + (id)find:(id)obj inColumn:(NSString *)col;
 
+- (BOOL)save;
+
 @end
