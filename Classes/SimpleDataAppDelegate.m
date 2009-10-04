@@ -19,9 +19,9 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application { 
 	SimpleStore *store = [SimpleStore storeWithPath:[[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"/s.sqlite"]];
-	[User createWithEmail:@"Brian Collins" name:@"bricollins@gmail.com" updatedAt:[NSDate date]];	
+	[User createWithName:@"Brian Collins" email:@"bricollins@gmail.com" createdAt:[NSDate date]];	
+	NSLog(@"%@", [User findAll]);
 	
-	NSLog(@"%@", [User findByName:@"Hello"]);
 	RootViewController *rootViewController = (RootViewController *)[navigationController topViewController];
 	rootViewController.store = store;
 	rootViewController.modelName = @"User";

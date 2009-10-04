@@ -92,7 +92,7 @@ static SimpleStore *current;
     return persistentStoreCoordinator;
 }
 
--(void)save {
+- (void)save {
 	managedObjectContext && [managedObjectContext hasChanges] && [managedObjectContext save:nil];
 }
 

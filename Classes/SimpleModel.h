@@ -12,5 +12,8 @@
 }
 
 + (id)createWithAttributes:(NSDictionary *)attributes;
++ (id)findWithPredicate:(NSPredicate *)predicate limit:(NSUInteger)limit;
++ (id)findAll;
++ (id)find:(id)obj inColumn:(NSString *)col;
 
 @end
