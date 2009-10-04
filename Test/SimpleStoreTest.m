@@ -12,20 +12,26 @@
 
 @implementation SimpleStoreTest
 
+- (void)setUp {
+    [SimpleStore storeWithPath:@"/tmp/test.sqlite3"];
+	[Employee createWithName:@"Alex"];
+}
 
 - (void)testCreateObject {
-    [SimpleStore storeWithPath:@"/tmp/test.sqlite3"];
 	Employee *employee = [Employee createWithName:@"Brian"];
-	STAssertNotNULL(employee, @"Employee object is created");
-	STAssertEqualStrings(@"Brian", employee.name, @"Attribute is set on creation");
+	STAssertNotNULL(employee, @"Employee object should be created");
+	STAssertEqualStrings(@"Brian", employee.name, @"Attribute should be set on creation");
 }
 
 - (void)testFindObject {
-	Employee *employee = [Employee findByName:@"Brian"];
-	STAssertNotNULL(employee, @"Employee is found");
+	Employee *employee = [Employee findByName:@"Alex"];
+	STAssertNotNULL(employee, @"Employee should be found");
 }
 
-
+- (void)testCantFindObject {
+	Employee *employee = [Employee findByName:@"Jack"];
+	STAssertNULL(employee, @"Non-existant employee should not be found");
+}
 
 
 @end
