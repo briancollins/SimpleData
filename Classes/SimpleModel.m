@@ -32,7 +32,7 @@
 
  //FIXME: ugly UGLY method proxying hack, because [invocation getArgument:>2] won't work otherwise
 + (id)createWithAttributes:(NSDictionary *)attributes a:(id)a b:(id)b c:(id)c d:(id)d e:(id)e {
-	[self createWithAttributes:attributes];
+	return [self createWithAttributes:attributes];
 }
 
 + (id)createWithAttributes:(NSDictionary *)attributes {
