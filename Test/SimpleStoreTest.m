@@ -48,7 +48,9 @@
 - (void)testUpdateEmployee {
 	Employee *employee = [Employee findByName:@"Alex"];
 	employee.email = @"alex@example.com";
-	[employee save];
+
+	STAssertTrue([employee save], @"The employee should be saved");
+	STAssertNotNULL([Employee findByEmail:@"alex@example.com"], "The updated employee should be findable");
 }
 
 
