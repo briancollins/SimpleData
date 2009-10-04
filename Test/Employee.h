@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSDate * updatedAt;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSDate * createdAt;
+@property (nonatomic, retain) NSDate * dateOfBirth;
 
 @end
 

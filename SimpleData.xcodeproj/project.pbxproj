@@ -35,6 +35,7 @@
 		D38753F81079415900F290C2 /* test.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = D38753F71079415900F290C2 /* test.xcdatamodel */; };
 		D38753FD107941A700F290C2 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = D38753FC107941A700F290C2 /* Employee.m */; };
 		D38754211079437900F290C2 /* NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = D3874FC2107867FD00F290C2 /* NSString.m */; };
+		D387544D1079466900F290C2 /* HelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D387544C1079466900F290C2 /* HelperTest.m */; };
 		D3E864F11077DCE40079694D /* SimpleStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E864F01077DCE40079694D /* SimpleStore.m */; };
 /* End PBXBuildFile section */
 
@@ -303,6 +304,8 @@
 		D38753F71079415900F290C2 /* test.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = test.xcdatamodel; sourceTree = "<group>"; };
 		D38753FB107941A700F290C2 /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
 		D38753FC107941A700F290C2 /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
+		D387544B1079466900F290C2 /* HelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperTest.h; sourceTree = "<group>"; };
+		D387544C1079466900F290C2 /* HelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperTest.m; sourceTree = "<group>"; };
 		D3E864EF1077DCE40079694D /* SimpleStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleStore.h; sourceTree = "<group>"; };
 		D3E864F01077DCE40079694D /* SimpleStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -419,6 +422,8 @@
 				D387529E10793DD800F290C2 /* SimpleStoreTest.h */,
 				D387529F10793DD800F290C2 /* SimpleStoreTest.m */,
 				D38753F71079415900F290C2 /* test.xcdatamodel */,
+				D387544B1079466900F290C2 /* HelperTest.h */,
+				D387544C1079466900F290C2 /* HelperTest.m */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -943,6 +948,7 @@
 				D38753F81079415900F290C2 /* test.xcdatamodel in Sources */,
 				D38753FD107941A700F290C2 /* Employee.m in Sources */,
 				D38754211079437900F290C2 /* NSString.m in Sources */,
+				D387544D1079466900F290C2 /* HelperTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

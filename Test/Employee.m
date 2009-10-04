@@ -15,5 +15,6 @@
 @dynamic updatedAt;
 @dynamic name;
 @dynamic createdAt;
+@dynamic dateOfBirth;
 
 @end
