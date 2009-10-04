@@ -21,6 +21,7 @@
 		D30234A61077FC8400EDF004 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D30234A51077FC8400EDF004 /* User.m */; };
 		D30234D51077FDF300EDF004 /* SDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D30234D41077FDF300EDF004 /* SDTableViewController.m */; };
 		D30234EA107817D500EDF004 /* SimpleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D30234E9107817D500EDF004 /* SimpleModel.m */; };
+		D3874FC3107867FD00F290C2 /* NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = D3874FC2107867FD00F290C2 /* NSString.m */; };
 		D3E864F11077DCE40079694D /* SimpleStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E864F01077DCE40079694D /* SimpleStore.m */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,8 @@
 		D30234D41077FDF300EDF004 /* SDTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTableViewController.m; sourceTree = "<group>"; };
 		D30234E8107817D500EDF004 /* SimpleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleModel.h; sourceTree = "<group>"; };
 		D30234E9107817D500EDF004 /* SimpleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleModel.m; sourceTree = "<group>"; };
+		D3874FC1107867FD00F290C2 /* NSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString.h; sourceTree = "<group>"; };
+		D3874FC2107867FD00F290C2 /* NSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString.m; sourceTree = "<group>"; };
 		D3E864EF1077DCE40079694D /* SimpleStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleStore.h; sourceTree = "<group>"; };
 		D3E864F01077DCE40079694D /* SimpleStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +84,8 @@
 				D30234D41077FDF300EDF004 /* SDTableViewController.m */,
 				D30234E8107817D500EDF004 /* SimpleModel.h */,
 				D30234E9107817D500EDF004 /* SimpleModel.m */,
+				D3874FC1107867FD00F290C2 /* NSString.h */,
+				D3874FC2107867FD00F290C2 /* NSString.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 				D30234A61077FC8400EDF004 /* User.m in Sources */,
 				D30234D51077FDF300EDF004 /* SDTableViewController.m in Sources */,
 				D30234EA107817D500EDF004 /* SimpleModel.m in Sources */,
+				D3874FC3107867FD00F290C2 /* NSString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

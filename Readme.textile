@@ -50,5 +50,5 @@ h4. Limitations
 ** There is no validation
 ** No sorting
 ** createWithX can only take up to 5 arguments due to the hack currently in place. Use createWithAttributes: for more than that
-
-
+** createdAt and updatedAt columns currently not set.
+** Without question, hundreds of memory leaks

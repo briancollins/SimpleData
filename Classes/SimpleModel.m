@@ -8,6 +8,7 @@
 
 #import "SimpleModel.h"
 #import "SimpleStore.h"
+#import "NSString.h"
 
 @implementation SimpleModel
 
@@ -26,7 +27,8 @@
 }
 
 + (NSArray *)findAll {
-	return nil;
+	return [self findWithPredicate: [NSPredicate predicateWithFormat:@"1 = 1"]
+							 limit: 0];
 }
 
 
@@ -46,14 +48,42 @@
 }
 
 + (id)find:(id)obj inColumn:(NSString *)col {
-	return nil;
+	NSArray *result = [self findWithPredicate: [NSPredicate predicateWithFormat:
+												[NSString stringWithFormat:@"%@ = %%@", col], obj]
+										limit: 1];
+	if (result && [result count] > 0) {
+		return [result objectAtIndex:0];
+	} else {
+		return nil;
+	}
+	
 }
+
++ (id)findWithPredicate:(NSPredicate *)predicate limit:(NSUInteger)limit {
+	NSManagedObjectContext *moc = [[SimpleStore currentStore] managedObjectContext];
+	NSEntityDescription *entityDescription = [NSEntityDescription
+											  entityForName:self.description inManagedObjectContext:moc];
+	NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+	[request setEntity:entityDescription];
+	
+	if (limit)
+		request.fetchLimit = limit;
+	
+	[request setPredicate:predicate];
+	
+	NSError *error = nil;
+	NSArray *array = [moc executeFetchRequest:request error:&error];
+	return array;
+}
+
 
 + (void)forwardInvocation:(NSInvocation *)invocation {
 	NSString *selector = NSStringFromSelector(invocation.selector);
 	
 	if ([selector rangeOfString:@"findBy"].location == 0) {
 		NSString *column = [selector stringByReplacingCharactersInRange:NSMakeRange(0, 6) withString:@""];
+		column = [column stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@":"]];
+		column = [column uncapitalizedString];
 		[invocation setSelector:@selector(find:inColumn:)];
 		[invocation setArgument:&column atIndex:3];
 		[invocation invokeWithTarget:self];
