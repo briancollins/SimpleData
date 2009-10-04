@@ -5,14 +5,19 @@ h3. A friendly abstraction for CoreData
 Aim: Gain all the speed of CoreData but with a friendly, ActiveRecord style interface. 
 _Please note:_ Some of the below may not yet work completely.
 
+h4. Step 1: Install SimpleData
+* Add the SimpleData repository to your project
+* Right click SimpleModel.m and SimpleStore.m and NSString.m and get properties
+* Add them to your target
+* Add SDTableViewController.m to your target too if you plan to use that
 
-h4. Step 1: Create a data model
+h4. Step 2: Create a data model
 * Go to  File > New File then choosing Resource > Data Model
 * Open the data model and edit it to your hearts desire
 * Tip: you might want to create date attributes called createdAt and updatedAt as they will come on handy later
 
 
-h4. Step 2: Create the class representations
+h4. Step 3: Create the class representations
 * In the data model editor, select classes you wish to use in your project
 * Choose File > New File. In the New File dialog, select Managed Object Class.
 * Depending on the version of Xcode you’re using, the Managed Object Class may be available in the iPhone OS section under Cocoa Touch Classes, or you may need to choose the template in the Mac OS X section, under Cocoa—either will work correctly.
@@ -24,14 +29,14 @@ h4. Step 2: Create the class representations
 You are now ready to start working with SimpleData
 
 
-h4. Step 3: Create a SimpleStore
+h4. Step 4: Create a SimpleStore
 * First, import the SimpleStore header
 <pre>#import &lt;SimpleStore.h&gt;</pre>
 * To create or open an existing database simply call:
 <pre>[SimpleStore storeWithPath: @"path"];</pre>
 
 
-h4. Step 4: Enjoy!
+h4. Step 5: Enjoy!
 * To create an object:
 <pre>[User createWithAttributes:attributesDict];
 [User createWithName:@"Brian" email:@"bricollins@gmail.com"];
@@ -43,7 +48,7 @@ h4. Step 4: Enjoy!
 <pre>User *u = [User findByName:@"Brian"];
 u.name = @"Brian Collins";
 [u save];
-</pre>
+NSArray *users = [User findAllByStarSign:@"Libra" sortBy:@"name"];</pre>
 
 h4. Running the test suite
 * Build and run with the target "Test" and watch the log output
@@ -57,7 +62,6 @@ h4. Limitations
 * Currently,
 ** You may only have one SimpleStore per application.
 ** There is no validation
-** No sorting
 ** createWithX can only take up to 5 arguments due to the hack currently in place. Use createWithAttributes: for more than that
-** createdAt and updatedAt columns currently not set.
-** Without question, hundreds of memory leaks
+** createdAt and updatedAt columns currently not set
+** Can only sort by a single column and ascending currently
