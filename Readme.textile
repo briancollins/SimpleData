@@ -31,7 +31,7 @@ You are now ready to start working with SimpleData
 
 h4. Step 4: Create a SimpleStore
 * First, import the SimpleStore header
-<code>#import &lt;SimpleStore.h&gt;</code>
+<code>#import <SimpleStore.h></code>
 * To create or open an existing database simply call:
 <code>[SimpleStore storeWithPath: @"path"];</code>
 
