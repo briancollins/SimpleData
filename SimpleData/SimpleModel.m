@@ -52,6 +52,14 @@
 									   sortBy: sortCol];
 }
 
++ (id)bunchOfArguments:(id)args, ... {
+}
+
++ (id)findWithPredicate:(NSPredicate *)predicate limit:(NSUInteger)limit {
+	return [self findWithPredicate:predicate limit:limit sortBy:@""];
+}
+
+
 + (NSMethodSignature *)methodSignatureForSelector:(SEL)selector
 {
 	if ([self respondsToSelector:selector]) {
@@ -69,12 +77,6 @@
 	}	
 }
 
-+ (id)bunchOfArguments:(id)args, ... {
-}
-
-+ (id)findWithPredicate:(NSPredicate *)predicate limit:(NSUInteger)limit {
-	return [self findWithPredicate:predicate limit:limit sortBy:@""];
-}
 
 + (id)findWithPredicate:(NSPredicate *)predicate limit:(NSUInteger)limit sortBy:(NSString *)sortCol {
 	NSManagedObjectContext *moc = [[SimpleStore currentStore] managedObjectContext];
