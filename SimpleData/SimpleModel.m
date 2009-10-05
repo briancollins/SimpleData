@@ -62,24 +62,6 @@
 }
 
 
-+ (NSMethodSignature *)methodSignatureForSelector:(SEL)selector
-{
-	if ([self respondsToSelector:selector]) {
-		return [super methodSignatureForSelector:selector];
-	} else {
-		NSString *sel = NSStringFromSelector(selector);
-		if ([sel hasPrefix:@"findBy"]) 
-			return [super methodSignatureForSelector:@selector(find: inColumn:)];
-		else if ([sel hasPrefix:@"findAllBy"])
-			return [super methodSignatureForSelector:@selector(findAll: inColumn: sortBy:)];
-		else if ([sel hasPrefix:@"createWith"])
-			return [NSMethodSignature signatureWithObjCTypes:LOTS_OF_ARGS];
-		else
-			return [super methodSignatureForSelector:selector];
-	}	
-}
-
-
 + (id)findWithPredicate:(NSPredicate *)predicate limit:(NSUInteger)limit sortBy:(NSString *)sortCol {
 	NSManagedObjectContext *moc = [[SimpleStore currentStore] managedObjectContext];
 	NSEntityDescription *entityDescription = [NSEntityDescription
@@ -100,6 +82,24 @@
 	NSError *error = nil;
 	NSArray *array = [moc executeFetchRequest:request error:&error];
 	return array;
+}
+
+
++ (NSMethodSignature *)methodSignatureForSelector:(SEL)selector
+{
+	if ([self respondsToSelector:selector]) {
+		return [super methodSignatureForSelector:selector];
+	} else {
+		NSString *sel = NSStringFromSelector(selector);
+		if ([sel hasPrefix:@"findBy"]) 
+			return [super methodSignatureForSelector:@selector(find: inColumn:)];
+		else if ([sel hasPrefix:@"findAllBy"])
+			return [super methodSignatureForSelector:@selector(findAll: inColumn: sortBy:)];
+		else if ([sel hasPrefix:@"createWith"])
+			return [NSMethodSignature signatureWithObjCTypes:LOTS_OF_ARGS];
+		else
+			return [super methodSignatureForSelector:selector];
+	}	
 }
 
 
