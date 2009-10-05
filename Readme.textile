@@ -45,23 +45,23 @@ h4. Step 4: Create a SimpleStore
 
 h4. Step 5: Enjoy!
 * To create an object:
-<code>
+<pre><code>
 	[User createWithAttributes:attributesDict];
 	[User createWithName:@"Brian" email:@"bricollins@gmail.com"];
 	[User createWithEmail:@"john@example.com" name:@"John"];
-</code>
+</code></pre>
 * To find an object:
-<code>
+<pre><code>
 	[User findByName:@"Brian"];
 	[User findAll]
-</code>
+</code></pre>
 * To update an object:
-<code>
+<pre><code>
 	User *u = [User findByName:@"Brian"];
 	u.name = @"Brian Collins";
 	[u save];
 	NSArray *users = [User findAllByStarSign:@"Libra" sortBy:@"name"];
-</code>
+</code></pre>
 
 <br />
 
