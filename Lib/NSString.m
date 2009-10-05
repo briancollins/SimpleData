@@ -22,4 +22,8 @@
 	return result;
 }
 
+- (BOOL)hasSubstring:(NSString *)substring {
+	return [self rangeOfString:substring].location != NSNotFound;
+}
+
 @end

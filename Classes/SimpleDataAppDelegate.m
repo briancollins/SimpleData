@@ -18,7 +18,7 @@
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application { 
-	SimpleStore *store = [SimpleStore storeWithPath:[[self applicationDocumentsDirectory] stringByAppendingPathComponent:@"/store.sqlite"]];
+	SimpleStore *store = [SimpleStore storeWithPath:@"store.sqlite"];
 	[User createWithName:@"Brian Collins" email:@"bricollins@gmail.com" createdAt:[NSDate date]];
 	
 	RootViewController *rootViewController = (RootViewController *)[navigationController topViewController];

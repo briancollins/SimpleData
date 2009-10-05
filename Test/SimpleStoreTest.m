@@ -14,12 +14,12 @@
 @implementation SimpleStoreTest
 
 - (void)setUp {
-    [SimpleStore storeWithPath:@"/tmp/test.sqlite3"];
+    [SimpleStore storeWithPath:@"test.sqlite3"];
 }
 
 - (void)tearDown {
 	[[SimpleStore currentStore] saveAndClose];
-	[[NSFileManager defaultManager] removeItemAtPath:@"/tmp/test.sqlite3" error:nil];
+	[SimpleStore deleteStoreAtPath:@"test.sqlite3"];
 }
 
 - (void)testCurrentStore {
@@ -35,14 +35,14 @@
 	[Employee createWithName:@"Roger"];
 	STAssertTrue([[SimpleStore currentStore] saveAndClose], @"saveAndClose should work with changes");
 	STAssertNULL([SimpleStore currentStore], @"CurrentStore should not be defined");
-	[SimpleStore storeWithPath:@"/tmp/test.sqlite3"];
+	[SimpleStore storeWithPath:@"test.sqlite3"];
 }
 
 - (void)testCloseWithoutSave {
 	[Employee createWithName:@"Jason"];
 	[[SimpleStore currentStore] close];
 	STAssertNULL([SimpleStore currentStore], @"CurrentStore should not be defined");
-	[SimpleStore storeWithPath:@"/tmp/test.sqlite3"];
+	[SimpleStore storeWithPath:@"test.sqlite3"];
 	STAssertNULL([Employee findByName:@"Jason"], @"Unsaved record should not exist");
 }
 

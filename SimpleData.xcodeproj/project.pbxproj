@@ -37,6 +37,8 @@
 		D38754211079437900F290C2 /* NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = D3874FC2107867FD00F290C2 /* NSString.m */; };
 		D387544D1079466900F290C2 /* HelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D387544C1079466900F290C2 /* HelperTest.m */; };
 		D3CA0B0D1079934300BBF55F /* SimpleModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CA0B0C1079934300BBF55F /* SimpleModelTest.m */; };
+		D3CA0B581079BAF100BBF55F /* UIApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CA0B571079BAF100BBF55F /* UIApplication.m */; };
+		D3CA0B591079BB2500BBF55F /* UIApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CA0B571079BAF100BBF55F /* UIApplication.m */; };
 		D3E864F11077DCE40079694D /* SimpleStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E864F01077DCE40079694D /* SimpleStore.m */; };
 /* End PBXBuildFile section */
 
@@ -309,6 +311,8 @@
 		D387544C1079466900F290C2 /* HelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperTest.m; sourceTree = "<group>"; };
 		D3CA0B0B1079934300BBF55F /* SimpleModelTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleModelTest.h; sourceTree = "<group>"; };
 		D3CA0B0C1079934300BBF55F /* SimpleModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleModelTest.m; sourceTree = "<group>"; };
+		D3CA0B561079BAF100BBF55F /* UIApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIApplication.h; sourceTree = "<group>"; };
+		D3CA0B571079BAF100BBF55F /* UIApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIApplication.m; sourceTree = "<group>"; };
 		D3E864EF1077DCE40079694D /* SimpleStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleStore.h; sourceTree = "<group>"; };
 		D3E864F01077DCE40079694D /* SimpleStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -764,6 +768,8 @@
 				D30234E9107817D500EDF004 /* SimpleModel.m */,
 				D3874FC1107867FD00F290C2 /* NSString.h */,
 				D3874FC2107867FD00F290C2 /* NSString.m */,
+				D3CA0B561079BAF100BBF55F /* UIApplication.h */,
+				D3CA0B571079BAF100BBF55F /* UIApplication.m */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -937,6 +943,7 @@
 				D30234D51077FDF300EDF004 /* SDTableViewController.m in Sources */,
 				D30234EA107817D500EDF004 /* SimpleModel.m in Sources */,
 				D3874FC3107867FD00F290C2 /* NSString.m in Sources */,
+				D3CA0B591079BB2500BBF55F /* UIApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -955,6 +962,7 @@
 				D38754211079437900F290C2 /* NSString.m in Sources */,
 				D387544D1079466900F290C2 /* HelperTest.m in Sources */,
 				D3CA0B0D1079934300BBF55F /* SimpleModelTest.m in Sources */,
+				D3CA0B581079BAF100BBF55F /* UIApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,7 @@
 @implementation SimpleModelTest
 
 - (void)setUp {
-    [SimpleStore storeWithPath:@"/tmp/test.sqlite3"];
+    [SimpleStore storeWithPath:@"test.sqlite3"];
 	[Employee createWithName:@"Quincey" dateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 4th 1986"]];
 	[Employee createWithName:@"Alex" dateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 4th 1986"]];
 	[Employee createWithName:@"Luna" dateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 4th 1986"]];
@@ -23,7 +23,7 @@
 
 - (void)tearDown {
 	[[SimpleStore currentStore] saveAndClose];
-	[[NSFileManager defaultManager] removeItemAtPath:@"/tmp/test.sqlite3" error:nil];
+	[SimpleStore deleteStoreAtPath:@"test.sqlite3"];
 }
 
 

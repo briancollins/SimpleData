@@ -18,8 +18,19 @@ static SimpleStore *current;
 	return current;
 }
 
++ (NSString *)storePath:(NSString *)p {
+	if (![p hasSubstring:@"/"])
+		return [[UIApplication documentsDirectory] stringByAppendingPathComponent:p];
+	else 
+		return p;
+}
+
 + (id)storeWithPath:(NSString *)p {
-	return current = [[SimpleStore alloc] initWithPath:p];
+	return current = [[SimpleStore alloc] initWithPath:[self storePath:p]];
+}
+
++ (void)deleteStoreAtPath:(NSString *)p {	
+	[[NSFileManager defaultManager] removeItemAtPath:[self storePath:p] error:nil];
 }
 
 - (id)initWithPath:(NSString *)p {

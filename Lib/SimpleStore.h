@@ -17,11 +17,13 @@
 }
 
 + (id)storeWithPath:(NSString *)p;
++ (void)deleteStoreAtPath:(NSString *)p;
 + (id)currentStore;
 - (id)initWithPath:(NSString *)p;
 - (BOOL)save;
 - (BOOL)close;
 - (BOOL)saveAndClose;
+
 
 @property (nonatomic, copy) NSString *path;
 
