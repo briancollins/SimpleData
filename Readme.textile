@@ -5,17 +5,22 @@ h3. A friendly abstraction for CoreData
 Aim: Gain all the speed of CoreData but with a friendly, ActiveRecord style interface. 
 _Please note:_ Some of the below may not yet work completely.
 
+<br />
+
 h4. Step 1: Install SimpleData
 * Add the SimpleData repository to your project
 * Right click SimpleModel.m and SimpleStore.m and NSString.m and get properties
 * Add them to your target
 * Add SDTableViewController.m to your target too if you plan to use that
 
+<br />
+
 h4. Step 2: Create a data model
 * Go to  File > New File then choosing Resource > Data Model
 * Open the data model and edit it to your hearts desire
 * Tip: you might want to create date attributes called createdAt and updatedAt as they will come on handy later
 
+<br />
 
 h4. Step 3: Create the class representations
 * In the data model editor, select classes you wish to use in your project
@@ -28,6 +33,7 @@ h4. Step 3: Create the class representations
 
 You are now ready to start working with SimpleData
 
+<br />
 
 h4. Step 4: Create a SimpleStore
 * First, import the SimpleStore header
@@ -35,6 +41,7 @@ h4. Step 4: Create a SimpleStore
 * To create or open an existing database simply call:
 <code>[SimpleStore storeWithPath: @"path"];</code>
 
+<br />
 
 h4. Step 5: Enjoy!
 * To create an object:
@@ -50,13 +57,17 @@ u.name = @"Brian Collins";
 [u save];
 NSArray *users = [User findAllByStarSign:@"Libra" sortBy:@"name"];</code>
 
+<br />
+
 h4. Running the test suite
 * Build and run with the target "Test" and watch the log output
 
+<br />
 
 h4. Displaying SimpleData objects in a tableView
 * Subclass SDTableViewController
 
+<br />
 
 h4. Limitations
 * Currently,
