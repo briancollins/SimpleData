@@ -61,11 +61,12 @@
 	if ([self respondsToSelector:selector]) {
 		return [super methodSignatureForSelector:selector];
 	} else {
-		if ([NSStringFromSelector(selector)	rangeOfString:@"findBy"].location == 0) 
+		NSString *sel = NSStringFromSelector(selector);
+		if ([sel hasPrefix:@"findBy"]) 
 			return [super methodSignatureForSelector:@selector(find: inColumn:)];
-		else if ([NSStringFromSelector(selector) rangeOfString:@"findAllBy"].location == 0)
+		else if ([sel hasPrefix:@"findAllBy"])
 			return [super methodSignatureForSelector:@selector(findAll: inColumn: sortBy:)];
-		else if ([NSStringFromSelector(selector) rangeOfString:@"createWith"].location == 0)
+		else if ([sel hasPrefix:@"createWith"])
 			return [super methodSignatureForSelector:@selector(createWithAttributes:a:b:c:d:e:)];
 		else
 			return [super methodSignatureForSelector:selector];
@@ -100,17 +101,17 @@
 
 
 + (void)forwardInvocation:(NSInvocation *)invocation {
-	NSString *selector = NSStringFromSelector(invocation.selector);
+	NSString *sel = NSStringFromSelector(invocation.selector);
 	
-	if ([selector rangeOfString:@"findBy"].location == 0) {
-		NSString *column = [selector stringByReplacingCharactersInRange:NSMakeRange(0, 6) withString:@""];
+	if ([sel hasPrefix:@"findBy"]) {
+		NSString *column = [sel stringByReplacingCharactersInRange:NSMakeRange(0, 6) withString:@""];
 		column = [column stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@":"]];
 		column = [column uncapitalizedString];
 		[invocation setSelector:@selector(find: inColumn:)];
 		[invocation setArgument:&column atIndex:3];
 		[invocation invokeWithTarget:self];
-	} else if ([selector rangeOfString:@"findAllBy"].location == 0) {
-		NSArray *chunks = [[selector stringByReplacingCharactersInRange:NSMakeRange(0, 9) withString:@""] componentsSeparatedByString: @":"];
+	} else if ([sel hasPrefix:@"findAllBy"]) {
+		NSArray *chunks = [[sel stringByReplacingCharactersInRange:NSMakeRange(0, 9) withString:@""] componentsSeparatedByString: @":"];
 
 		if ([[chunks objectAtIndex:1] isEqualToString:@"sortBy"]) {
 			NSString *sortBy;
@@ -126,8 +127,8 @@
 		
 		[invocation setSelector:@selector(findAll: inColumn: sortBy:)];
 		[invocation invokeWithTarget:self];
-	} else if ([selector rangeOfString:@"createWith"].location == 0) {
-		NSArray *chunks = [[selector stringByReplacingCharactersInRange:NSMakeRange(0, 10) withString:@""] componentsSeparatedByString: @":"];
+	} else if ([sel hasPrefix:@"createWith"]) {
+		NSArray *chunks = [[sel stringByReplacingCharactersInRange:NSMakeRange(0, 10) withString:@""] componentsSeparatedByString: @":"];
 		NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithCapacity:[chunks count] - 1];
 		int i = 2;
 		for (NSString *chunk in chunks) {
