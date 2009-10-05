@@ -31,24 +31,24 @@ You are now ready to start working with SimpleData
 
 h4. Step 4: Create a SimpleStore
 * First, import the SimpleStore header
-<pre>#import &lt;SimpleStore.h&gt;</pre>
+<code>#import &lt;SimpleStore.h&gt;</code>
 * To create or open an existing database simply call:
-<pre>[SimpleStore storeWithPath: @"path"];</pre>
+<code>[SimpleStore storeWithPath: @"path"];</code>
 
 
 h4. Step 5: Enjoy!
 * To create an object:
-<pre>[User createWithAttributes:attributesDict];
+<code>[User createWithAttributes:attributesDict];
 [User createWithName:@"Brian" email:@"bricollins@gmail.com"];
-[User createWithEmail:@"john@example.com" name:@"John"];</pre>
+[User createWithEmail:@"john@example.com" name:@"John"];</code>
 * To find an object:
-<pre>[User findByName:@"Brian"];
-[User findAll]</pre>
+<code>[User findByName:@"Brian"];
+[User findAll]</code>
 * To update an object:
-<pre>User *u = [User findByName:@"Brian"];
+<code>User *u = [User findByName:@"Brian"];
 u.name = @"Brian Collins";
 [u save];
-NSArray *users = [User findAllByStarSign:@"Libra" sortBy:@"name"];</pre>
+NSArray *users = [User findAllByStarSign:@"Libra" sortBy:@"name"];</code>
 
 h4. Running the test suite
 * Build and run with the target "Test" and watch the log output
