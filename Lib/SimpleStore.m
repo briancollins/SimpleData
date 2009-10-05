@@ -7,7 +7,8 @@
 //
 
 #import "SimpleStore.h"
-
+#import "NSString.h"
+#import "UIApplication.h"
 
 @implementation SimpleStore
 @synthesize path;

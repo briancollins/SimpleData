@@ -9,6 +9,8 @@
 
 
 @interface NSString (SimpleData) 
+
+- (BOOL)hasSubstring:(NSString *)substring;
 - (NSString *)uncapitalizedString;
 
 @end

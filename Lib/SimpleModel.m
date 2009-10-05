@@ -54,8 +54,6 @@
 									   sortBy: sortCol];
 }
 
-+ (id)bunchOfArguments:(id)args, ... {
-}
 
 + (id)findWithPredicate:(NSPredicate *)predicate limit:(NSUInteger)limit {
 	return [self findWithPredicate:predicate limit:limit sortBy:@""];
