@@ -16,7 +16,7 @@
 + (id)findAll;
 + (id)find:(id)obj inColumn:(NSString *)col;
 + (id)findWithPredicate:(NSPredicate *)predicate limit:(NSUInteger)limit sortBy:(NSString *)sortCol;
-
++ (void)forwardInvocation:(NSInvocation *)invocation;
 - (BOOL)save;
 
 @end
