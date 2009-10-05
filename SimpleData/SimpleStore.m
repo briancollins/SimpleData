@@ -97,13 +97,13 @@ static SimpleStore *current;
 }
 
 - (BOOL)saveAndClose {
-	if ([self save]) {
-		current = nil;
-		[self release];
-		return YES;
-	} else {
-		return NO;
-	}
+	return [self save] && [self close];
+}
+
+- (BOOL)close {
+	current = nil;
+	[self release];
+	return YES;
 }
 
 - (void)dealloc {

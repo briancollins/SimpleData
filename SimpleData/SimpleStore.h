@@ -20,6 +20,8 @@
 + (id)currentStore;
 - (id)initWithPath:(NSString *)p;
 - (BOOL)save;
+- (BOOL)close;
+- (BOOL)saveAndClose;
 
 @property (nonatomic, copy) NSString *path;
 

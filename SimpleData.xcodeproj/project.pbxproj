@@ -36,6 +36,7 @@
 		D38753FD107941A700F290C2 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = D38753FC107941A700F290C2 /* Employee.m */; };
 		D38754211079437900F290C2 /* NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = D3874FC2107867FD00F290C2 /* NSString.m */; };
 		D387544D1079466900F290C2 /* HelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D387544C1079466900F290C2 /* HelperTest.m */; };
+		D3CA0B0D1079934300BBF55F /* SimpleModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CA0B0C1079934300BBF55F /* SimpleModelTest.m */; };
 		D3E864F11077DCE40079694D /* SimpleStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E864F01077DCE40079694D /* SimpleStore.m */; };
 /* End PBXBuildFile section */
 
@@ -306,6 +307,8 @@
 		D38753FC107941A700F290C2 /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
 		D387544B1079466900F290C2 /* HelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperTest.h; sourceTree = "<group>"; };
 		D387544C1079466900F290C2 /* HelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperTest.m; sourceTree = "<group>"; };
+		D3CA0B0B1079934300BBF55F /* SimpleModelTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleModelTest.h; sourceTree = "<group>"; };
+		D3CA0B0C1079934300BBF55F /* SimpleModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleModelTest.m; sourceTree = "<group>"; };
 		D3E864EF1077DCE40079694D /* SimpleStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleStore.h; sourceTree = "<group>"; };
 		D3E864F01077DCE40079694D /* SimpleStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -424,6 +427,8 @@
 				D38753F71079415900F290C2 /* test.xcdatamodel */,
 				D387544B1079466900F290C2 /* HelperTest.h */,
 				D387544C1079466900F290C2 /* HelperTest.m */,
+				D3CA0B0B1079934300BBF55F /* SimpleModelTest.h */,
+				D3CA0B0C1079934300BBF55F /* SimpleModelTest.m */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -949,6 +954,7 @@
 				D38753FD107941A700F290C2 /* Employee.m in Sources */,
 				D38754211079437900F290C2 /* NSString.m in Sources */,
 				D387544D1079466900F290C2 /* HelperTest.m in Sources */,
+				D3CA0B0D1079934300BBF55F /* SimpleModelTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
