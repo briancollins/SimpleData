@@ -364,7 +364,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				D3875417107942FD00F290C2 /* SimpleData */,
+				D3875417107942FD00F290C2 /* Lib */,
 				D387528410793D5200F290C2 /* Test */,
 				D30234951077F59200EDF004 /* Doc */,
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -753,7 +753,7 @@
 			path = Target;
 			sourceTree = "<group>";
 		};
-		D3875417107942FD00F290C2 /* SimpleData */ = {
+		D3875417107942FD00F290C2 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
 				D3E864EF1077DCE40079694D /* SimpleStore.h */,
@@ -765,7 +765,7 @@
 				D3874FC1107867FD00F290C2 /* NSString.h */,
 				D3874FC2107867FD00F290C2 /* NSString.m */,
 			);
-			path = SimpleData;
+			path = Lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
