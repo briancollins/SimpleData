@@ -14,12 +14,20 @@
 @implementation SimpleStoreTest
 
 - (void)setUp {
-	[[NSFileManager defaultManager] removeItemAtPath:@"/tmp/test.sqlite3" error:nil];
     [SimpleStore storeWithPath:@"/tmp/test.sqlite3"];
 	[Employee createWithName:@"Quincey" dateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 4th 1986"]];
 	[Employee createWithName:@"Alex" dateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 4th 1986"]];
 	[Employee createWithName:@"Luna" dateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 4th 1986"]];
+}
 
+- (void)tearDown {
+	[[SimpleStore currentStore] saveAndClose];
+	[[NSFileManager defaultManager] removeItemAtPath:@"/tmp/test.sqlite3" error:nil];
+}
+
+- (void)testSaveAndClose {
+	[[SimpleStore currentStore] saveAndClose];
+	STAssertNULL([SimpleStore currentStore], @"CurrentStore should not exist");
 }
 
 - (void)testCreateObject {

@@ -96,8 +96,17 @@ static SimpleStore *current;
 	return managedObjectContext && [managedObjectContext hasChanges] && [managedObjectContext save:nil];
 }
 
+- (BOOL)saveAndClose {
+	if ([self save]) {
+		current = nil;
+		[self release];
+		return YES;
+	} else {
+		return NO;
+	}
+}
+
 - (void)dealloc {
-	[self save];
     [managedObjectContext release];
     [managedObjectModel release];
     [persistentStoreCoordinator release];
