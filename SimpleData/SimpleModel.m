@@ -22,10 +22,6 @@
 	return [[SimpleStore currentStore] save];
 }
 
- //FIXME: ugly UGLY method proxying hack, because [invocation getArgument:>2] won't work otherwise
-+ (id)createWithAttributes:(NSDictionary *)attributes a:(id)a b:(id)b c:(id)c d:(id)d e:(id)e {
-	return [self createWithAttributes:attributes];
-}
 
 + (id)createWithAttributes:(NSDictionary *)attributes {
 	id obj = [[self alloc] initWithEntity:[NSEntityDescription entityForName:self.description
@@ -67,10 +63,13 @@
 		else if ([sel hasPrefix:@"findAllBy"])
 			return [super methodSignatureForSelector:@selector(findAll: inColumn: sortBy:)];
 		else if ([sel hasPrefix:@"createWith"])
-			return [super methodSignatureForSelector:@selector(createWithAttributes:a:b:c:d:e:)];
+			return [NSMethodSignature signatureWithObjCTypes:"@^v@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"];
 		else
 			return [super methodSignatureForSelector:selector];
 	}	
+}
+
++ (id)bunchOfArguments:(id)args, ... {
 }
 
 + (id)findWithPredicate:(NSPredicate *)predicate limit:(NSUInteger)limit {
@@ -141,7 +140,7 @@
 			
 		}
 		
-		[invocation setSelector:@selector(createWithAttributes:a:b:c:d:e:)];
+		[invocation setSelector:@selector(createWithAttributes:)];
 		[invocation setArgument:&attributes atIndex:2];
 		[invocation invokeWithTarget:self];
 	}
