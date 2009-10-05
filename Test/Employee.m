@@ -16,5 +16,7 @@
 @dynamic name;
 @dynamic createdAt;
 @dynamic dateOfBirth;
+@dynamic starSign;
+@dynamic bloodType;
 
 @end

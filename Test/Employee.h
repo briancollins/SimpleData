@@ -16,6 +16,8 @@
 @property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSDate * updatedAt;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * starSign;
+@property (nonatomic, retain) NSString * bloodType;
 @property (nonatomic, retain) NSDate * createdAt;
 @property (nonatomic, retain) NSDate * dateOfBirth;
 
