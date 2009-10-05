@@ -10,6 +10,8 @@
 #import "SimpleStore.h"
 #import "NSString.h"
 
+#define LOTS_OF_ARGS "@^v@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+
 @implementation SimpleModel
 
 
@@ -71,7 +73,7 @@
 		else if ([sel hasPrefix:@"findAllBy"])
 			return [super methodSignatureForSelector:@selector(findAll: inColumn: sortBy:)];
 		else if ([sel hasPrefix:@"createWith"])
-			return [NSMethodSignature signatureWithObjCTypes:"@^v@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"];
+			return [NSMethodSignature signatureWithObjCTypes:LOTS_OF_ARGS];
 		else
 			return [super methodSignatureForSelector:selector];
 	}	
