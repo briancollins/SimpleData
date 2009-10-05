@@ -18,5 +18,6 @@
 @dynamic dateOfBirth;
 @dynamic starSign;
 @dynamic bloodType;
+@dynamic favoriteColor;
 
 @end

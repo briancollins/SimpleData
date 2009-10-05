@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSString * bloodType;
 @property (nonatomic, retain) NSDate * createdAt;
 @property (nonatomic, retain) NSDate * dateOfBirth;
+@property (nonatomic, retain) NSString * favoriteColor;
 
 @end
 

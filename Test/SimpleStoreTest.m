@@ -81,5 +81,19 @@
 	}
 }
 
+- (void)testCreateObjectWithMoreThan5Attributes {
+	Employee *employee = [Employee createWithName:@"Brian" 
+											email:@"brian@example.com" 
+										 starSign:@"libra"
+										createdAt:[NSDate date]
+										updatedAt:[NSDate date]
+										bloodType:@"O"
+									favoriteColor:@"purple"];
+	STAssertNotNULL(employee, @"Employee object should be created");
+	STAssertEqualStrings(@"Brian", employee.name, @"Attribute should be set on creation");
+	STAssertEqualStrings(@"brian@example.com", employee.email, @"Attribute should be set on creation");
+	STAssertEqualStrings(@"O", employee.bloodType, @"Attribute should be set on creation");
+}
+
 
 @end
