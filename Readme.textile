@@ -3,15 +3,14 @@ h1. SimpleData
 h3. A friendly abstraction for CoreData
 
 Aim: Gain all the speed of CoreData but with a friendly, ActiveRecord style interface. 
-_Please note:_ Some of the below may not yet work completely.
 
 <br />
 
 h4. Step 1: Install SimpleData
 * Add the SimpleData repository to your project
-* Right click SimpleModel.m and SimpleStore.m and NSString.m and get properties
-* Add them to your target
-* Add SDTableViewController.m to your target too if you plan to use that
+* Add all the .m files in Lib to your target
+** Right click the .m file
+** In the target tab, check the box for your target
 
 <br />
 
@@ -75,4 +74,4 @@ h4. Limitations
 ** There is no validation
 ** createWithX can only take up to 5 arguments due to the hack currently in place. Use createWithAttributes: for more than that
 ** createdAt and updatedAt columns currently not set
-** Can only sort by a single column and ascending currently
+** Can only sort by a single column and ascending
