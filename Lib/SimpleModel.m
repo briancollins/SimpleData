@@ -25,6 +25,15 @@
 }
 
 
++ (id)findUsingColumn:(NSString *)col orCreateWithAttributes:(NSDictionary *)attributes {
+	NSLog(@"%@ %@", col, [attributes objectForKey:col]);
+	id obj;
+	if (obj = [self find:[attributes objectForKey:col] inColumn:col])
+		return obj;
+	else
+		return [self createWithAttributes:attributes];
+}
+
 + (id)createWithAttributes:(NSDictionary *)attributes {
 	id obj = [[self alloc] initWithEntity:[NSEntityDescription entityForName:self.description
 													  inManagedObjectContext:[[SimpleStore currentStore] managedObjectContext]] 
@@ -95,6 +104,8 @@
 			return [super methodSignatureForSelector:@selector(findAll: inColumn: sortBy:)];
 		else if ([sel hasPrefix:@"createWith"])
 			return [NSMethodSignature signatureWithObjCTypes:LOTS_OF_ARGS];
+		else if ([sel hasPrefix:@"findOrCreateWith"])
+			return [NSMethodSignature signatureWithObjCTypes:LOTS_OF_ARGS];
 		else
 			return [super methodSignatureForSelector:selector];
 	}	
@@ -136,7 +147,7 @@
 			if ([chunk length] > 0) {
 				id o;
 				[invocation getArgument:&o atIndex:i];
-				[attributes setObject:o forKey:chunk];
+				[attributes setObject:o forKey:[chunk uncapitalizedString]];
 				i++;
 			}
 			
@@ -145,6 +156,28 @@
 		[invocation setSelector:@selector(createWithAttributes:)];
 		[invocation setArgument:&attributes atIndex:2];
 		[invocation invokeWithTarget:self];
+	} else if ([sel hasPrefix:@"findOrCreateWith"]) {
+		NSArray *chunks = [[sel stringByReplacingCharactersInRange:NSMakeRange(0, 16) withString:@""] componentsSeparatedByString: @":"];
+		NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithCapacity:[chunks count] - 1];
+		int i = 2;
+		
+		for (NSString *chunk in chunks) {
+			if ([chunk length] > 0) {
+				id o;
+				[invocation getArgument:&o atIndex:i];
+				[attributes setObject:o forKey:[chunk uncapitalizedString]];
+				i++;
+			}
+		}
+		
+		id col = [[chunks objectAtIndex:0] uncapitalizedString];
+		[invocation setArgument:&col atIndex:2];
+		
+		
+		[invocation setSelector:@selector(findUsingColumn:orCreateWithAttributes:)];
+		[invocation setArgument:&attributes atIndex:3];
+		[invocation invokeWithTarget:self];
+		
 	}
 }
 
