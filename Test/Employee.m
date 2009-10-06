@@ -2,7 +2,7 @@
 //  Employee.m
 //  SimpleData
 //
-//  Created by Brian Collins on 09-10-04.
+//  Created by Brian Collins on 09-10-05.
 //  Copyright 2009 Brian Collins. All rights reserved.
 //
 
@@ -11,13 +11,14 @@
 
 @implementation Employee 
 
+@dynamic smoker;
+@dynamic favoriteColor;
+@dynamic bloodType;
+@dynamic starSign;
+@dynamic dateOfBirth;
 @dynamic email;
 @dynamic updatedAt;
-@dynamic name;
 @dynamic createdAt;
-@dynamic dateOfBirth;
-@dynamic starSign;
-@dynamic bloodType;
-@dynamic favoriteColor;
+@dynamic name;
 
 @end

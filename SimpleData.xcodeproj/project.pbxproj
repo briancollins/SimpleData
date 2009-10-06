@@ -21,6 +21,9 @@
 		D30234A61077FC8400EDF004 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D30234A51077FC8400EDF004 /* User.m */; };
 		D30234D51077FDF300EDF004 /* SDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D30234D41077FDF300EDF004 /* SDTableViewController.m */; };
 		D30234EA107817D500EDF004 /* SimpleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D30234E9107817D500EDF004 /* SimpleModel.m */; };
+		D315AD2B107AFDEF00A3897D /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = D315AD2A107AFDEF00A3897D /* Employee.m */; };
+		D315AD4F107B00CF00A3897D /* NSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D315AD4E107B00CF00A3897D /* NSObject.m */; };
+		D315AD50107B00CF00A3897D /* NSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D315AD4E107B00CF00A3897D /* NSObject.m */; };
 		D3874FC3107867FD00F290C2 /* NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = D3874FC2107867FD00F290C2 /* NSString.m */; };
 		D387529C10793D9C00F290C2 /* SimpleStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E864F01077DCE40079694D /* SimpleStore.m */; };
 		D387529D10793DA900F290C2 /* SimpleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D30234E9107817D500EDF004 /* SimpleModel.m */; };
@@ -33,7 +36,6 @@
 		D38753BC10793F3700F290C2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		D38753BD10793F3700F290C2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28860BE40F44EE6400985440 /* CoreData.framework */; };
 		D38753F81079415900F290C2 /* test.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = D38753F71079415900F290C2 /* test.xcdatamodel */; };
-		D38753FD107941A700F290C2 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = D38753FC107941A700F290C2 /* Employee.m */; };
 		D38754211079437900F290C2 /* NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = D3874FC2107867FD00F290C2 /* NSString.m */; };
 		D387544D1079466900F290C2 /* HelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D387544C1079466900F290C2 /* HelperTest.m */; };
 		D3CA0B0D1079934300BBF55F /* SimpleModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CA0B0C1079934300BBF55F /* SimpleModelTest.m */; };
@@ -117,6 +119,10 @@
 		D30234D41077FDF300EDF004 /* SDTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTableViewController.m; sourceTree = "<group>"; };
 		D30234E8107817D500EDF004 /* SimpleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleModel.h; sourceTree = "<group>"; };
 		D30234E9107817D500EDF004 /* SimpleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleModel.m; sourceTree = "<group>"; };
+		D315AD29107AFDEF00A3897D /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
+		D315AD2A107AFDEF00A3897D /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
+		D315AD4D107B00CF00A3897D /* NSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObject.h; sourceTree = "<group>"; };
+		D315AD4E107B00CF00A3897D /* NSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObject.m; sourceTree = "<group>"; };
 		D3874FC1107867FD00F290C2 /* NSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString.h; sourceTree = "<group>"; };
 		D3874FC2107867FD00F290C2 /* NSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString.m; sourceTree = "<group>"; };
 		D387529410793D8000F290C2 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -305,8 +311,6 @@
 		D387539210793ED700F290C2 /* StaticLibraryGCSupported.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = StaticLibraryGCSupported.xcconfig; sourceTree = "<group>"; };
 		D387539310793ED700F290C2 /* xcconfigs-readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "xcconfigs-readme.txt"; sourceTree = "<group>"; };
 		D38753F71079415900F290C2 /* test.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = test.xcdatamodel; sourceTree = "<group>"; };
-		D38753FB107941A700F290C2 /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
-		D38753FC107941A700F290C2 /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
 		D387544B1079466900F290C2 /* HelperTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperTest.h; sourceTree = "<group>"; };
 		D387544C1079466900F290C2 /* HelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperTest.m; sourceTree = "<group>"; };
 		D3CA0B0B1079934300BBF55F /* SimpleModelTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleModelTest.h; sourceTree = "<group>"; };
@@ -423,8 +427,8 @@
 		D387528410793D5200F290C2 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				D38753FB107941A700F290C2 /* Employee.h */,
-				D38753FC107941A700F290C2 /* Employee.m */,
+				D315AD29107AFDEF00A3897D /* Employee.h */,
+				D315AD2A107AFDEF00A3897D /* Employee.m */,
 				D38752C710793ED600F290C2 /* google-toolbox-for-mac */,
 				D387529E10793DD800F290C2 /* SimpleStoreTest.h */,
 				D387529F10793DD800F290C2 /* SimpleStoreTest.m */,
@@ -770,6 +774,8 @@
 				D3874FC2107867FD00F290C2 /* NSString.m */,
 				D3CA0B561079BAF100BBF55F /* UIApplication.h */,
 				D3CA0B571079BAF100BBF55F /* UIApplication.m */,
+				D315AD4D107B00CF00A3897D /* NSObject.h */,
+				D315AD4E107B00CF00A3897D /* NSObject.m */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -944,6 +950,7 @@
 				D30234EA107817D500EDF004 /* SimpleModel.m in Sources */,
 				D3874FC3107867FD00F290C2 /* NSString.m in Sources */,
 				D3CA0B591079BB2500BBF55F /* UIApplication.m in Sources */,
+				D315AD50107B00CF00A3897D /* NSObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -958,11 +965,12 @@
 				D38753AF10793F0300F290C2 /* GTMIPhoneUnitTestMain.m in Sources */,
 				D38753B010793F0300F290C2 /* GTMSenTestCase.m in Sources */,
 				D38753F81079415900F290C2 /* test.xcdatamodel in Sources */,
-				D38753FD107941A700F290C2 /* Employee.m in Sources */,
 				D38754211079437900F290C2 /* NSString.m in Sources */,
 				D387544D1079466900F290C2 /* HelperTest.m in Sources */,
 				D3CA0B0D1079934300BBF55F /* SimpleModelTest.m in Sources */,
 				D3CA0B581079BAF100BBF55F /* UIApplication.m in Sources */,
+				D315AD2B107AFDEF00A3897D /* Employee.m in Sources */,
+				D315AD4F107B00CF00A3897D /* NSObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

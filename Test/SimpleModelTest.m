@@ -92,5 +92,11 @@
 	STAssertEqualStrings(@"O", employee.bloodType, @"Attribute should be set on creation");
 }
 
+- (void)testCreateObjectWithNonPointerAttributes {
+	// currently they must be assigned as NSNumbers or NSValues
+	Employee *employee = [Employee createWithName:@"Gerrard"
+										   smoker:[NSNumber numberWithBool:YES]];
+	STAssertTrue([employee.smoker boolValue] == YES, @"Smoker attribute should be assigned on creation");
+}
 
 @end
