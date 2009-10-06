@@ -13,10 +13,9 @@
 @implementation SimpleStore
 @synthesize path;
 
-static SimpleStore *current;
 
 + (id)currentStore {
-	return current;
+	return [[[NSThread currentThread] threadDictionary] objectForKey:SIMPLE_STORE_KEY];
 }
 
 + (NSString *)storePath:(NSString *)p {
@@ -27,7 +26,9 @@ static SimpleStore *current;
 }
 
 + (id)storeWithPath:(NSString *)p {
-	return current = [[SimpleStore alloc] initWithPath:[self storePath:p]];
+	id current = [[SimpleStore alloc] initWithPath:[self storePath:p]];
+	[[[NSThread currentThread] threadDictionary] setObject:current forKey:SIMPLE_STORE_KEY];
+	return current;
 }
 
 + (void)deleteStoreAtPath:(NSString *)p {	
@@ -113,7 +114,7 @@ static SimpleStore *current;
 }
 
 - (BOOL)close {
-	current = nil;
+	[[[NSThread currentThread] threadDictionary] removeObjectForKey:SIMPLE_STORE_KEY];
 	[self release];
 	return YES;
 }

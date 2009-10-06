@@ -22,6 +22,13 @@
 	[SimpleStore deleteStoreAtPath:@"test.sqlite3"];
 }
 
+- (void)testSetsCurrentStore {
+	STAssertNotNULL([SimpleStore currentStore], @"Current store should exist");
+	STAssertEquals([[[NSThread currentThread] threadDictionary] 
+					objectForKey:SIMPLE_STORE_KEY], 
+				   [SimpleStore currentStore], @"Current store should be stored in thread dictionary");
+}
+
 - (void)testCurrentStore {
 	STAssertNotNULL([SimpleStore currentStore], @"Current store should exist");
 }
