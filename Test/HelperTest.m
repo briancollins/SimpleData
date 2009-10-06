@@ -8,6 +8,8 @@
 
 #import "HelperTest.h"
 #import "NSString.h"
+#import "NSObject.h"
+#import "Employee.h"
 
 @implementation HelperTest
 
@@ -16,5 +18,9 @@
 						 @"String should be uncapitalized but camel case preserved");
 }
 
+- (void) testDescribeProperties {
+	STAssertEqualStrings(@"NSString", [[Employee describeProperties] objectForKey:@"name"], 
+						 @"The type of the name property should be an NSString");
+}
 
 @end

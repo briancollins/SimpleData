@@ -55,7 +55,12 @@ h4. Step 5: Enjoy!
 u.name = @"Brian Collins";
 [u save];
 NSArray *users = [User findAllByStarSign:@"Libra" sortBy:@"name"];</code></pre>
-
+* Setting non object attributes (unfortunately):
+<pre><code>[User createWithName:@"Brian" 
+ smoker:[NSNumber numberWithBool:NO]];</code></pre>
+* Find or create an object if it doesn't exist:
+<pre><code>[User findOrCreateByName:@"Brian" email:@"brian@example.com"].email; // => @"brian@example.com"
+[User findOrCreateByName:@"Brian" email:@"brian@foo.com"].email; // => @"brian@example.com" because it exists</code></pre>
 <br />
 
 h4. Running the test suite
