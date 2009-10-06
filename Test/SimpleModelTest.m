@@ -99,4 +99,21 @@
 	STAssertTrue([employee.smoker boolValue] == YES, @"Smoker attribute should be assigned on creation");
 }
 
+- (void)testFindOrCreateWithFindsExisting {
+	Employee *employee = [Employee createWithName:@"Alfie"
+											email:@"alfie@example.com"];
+	Employee *newEmployee = [Employee findOrCreateWithEmail:@"alfie@example.com"
+													   name:@"Alfie Jones"];
+	STAssertEqualStrings(@"Alfie", [newEmployee name], 
+						 @"findOrCreateWithEmail should return in case of existing employee");
+	STAssertTrue([[Employee findAllByEmail:@"alfie@example.com"] count] == 1,
+				 @"Should not create a new employee if already exists");
+}
+
+- (void)testFindOrCreateWithCreatesNew {
+	Employee *employee = [Employee findOrCreateWithName:@"Patrick"];
+	STAssertTrue([[Employee findAllByName:@"Patrick"] count] == 1,
+				 @"Should create a new employee if none exists");
+}
+
 @end
