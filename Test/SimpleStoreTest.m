@@ -47,7 +47,7 @@
 
 - (void)testCloseWithoutSave {
 	[Employee createWithName:@"Jason"];
-	[[SimpleStore currentStore] close];
+	[(SimpleStore *)[SimpleStore currentStore] close];
 	STAssertNULL([SimpleStore currentStore], @"CurrentStore should not be defined");
 	[SimpleStore storeWithPath:@"test.sqlite3"];
 	STAssertNULL([Employee findByName:@"Jason"], @"Unsaved record should not exist");

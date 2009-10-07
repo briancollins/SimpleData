@@ -77,6 +77,7 @@ h4. Limitations
 * Currently,
 ** You may only have one SimpleStore open per thread.
 ** There is no validation, but the standard coredata validation should still work.
+** You will get warnings unless you prototype the methods you use. "See this wiki article":http://wiki.github.com/briancollins/SimpleData/stopping-compiler-warnings
 
 <br />
 

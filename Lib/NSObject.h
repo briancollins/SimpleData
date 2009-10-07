@@ -9,6 +9,6 @@
 
 @interface NSObject (SimpleData)
 
-
++ (NSDictionary *)describeProperties;
 
 @end

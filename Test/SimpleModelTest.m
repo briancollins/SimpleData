@@ -11,7 +11,8 @@
 #import "Employee.h"
 #import "SimpleModelTest.h"
 
-#define DECEMBER_4TH [NSDate dateWithNaturalLanguageString:@"December 4th 1986"]
+#define DECEMBER_4TH [NSDate dateWithTimeIntervalSince1970:534103200]
+#define JUNE_11TH    [NSDate dateWithTimeIntervalSince1970:929120400]
 
 @implementation SimpleModelTest
 
@@ -57,7 +58,7 @@
 
 
 - (void)testCantFindByDate {
-	Employee *employee = [Employee findByDateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 5th 1986"]];
+	Employee *employee = [Employee findByDateOfBirth:JUNE_11TH];
 	STAssertNULL(employee, @"Employee should not be found");	
 }
 
@@ -67,7 +68,7 @@
 	employee.email = @"alex@example.com";
 	
 	STAssertTrue([employee save], @"The employee should be saved");
-	STAssertNotNULL([Employee findByEmail:@"alex@example.com"], "The updated employee should be findable");
+	STAssertNotNULL([Employee findByEmail:@"alex@example.com"], @"The updated employee should be findable");
 }
 
 
