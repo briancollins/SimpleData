@@ -159,7 +159,7 @@
 		if ([sortBy isEqualToString:@"sortByDescending"]) {
 			[sortDescriptors addObject:[[[NSSortDescriptor alloc] initWithKey:[attributes shift] ascending:NO] autorelease]];
 		} else if ([sortBy isEqualToString:@"sortBy"]) {
-				[sortDescriptors addObject:[[[NSSortDescriptor alloc] initWithKey:[attributes shift] ascending:YES] autorelease]];
+			[sortDescriptors addObject:[[[NSSortDescriptor alloc] initWithKey:[attributes shift] ascending:YES] autorelease]];
 		} else { 
 			@throw([NSException exceptionWithName:@"Unexpected Argument" reason:@"Bad sort descriptor" userInfo:nil]);
 		}
