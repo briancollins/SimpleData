@@ -108,6 +108,9 @@
 						 @"findOrCreateWithEmail should return in case of existing employee");
 	STAssertTrue([[Employee findAllByEmail:@"alfie@example.com"] count] == 1,
 				 @"Should not create a new employee if already exists");
+	STAssertEqualStrings([[newEmployee.objectID URIRepresentation] absoluteString], 
+						 [[employee.objectID URIRepresentation] absoluteString], 
+						 @"Both employees should be the same");
 }
 
 - (void)testFindOrCreateWithCreatesNew {
