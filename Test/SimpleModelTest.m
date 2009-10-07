@@ -11,14 +11,17 @@
 #import "Employee.h"
 #import "SimpleModelTest.h"
 
+#define DECEMBER_4TH [NSDate dateWithNaturalLanguageString:@"December 4th 1986"]
 
 @implementation SimpleModelTest
 
+
 - (void)setUp {
     [SimpleStore storeWithPath:@"test.sqlite3"];
-	[Employee createWithName:@"Quincey" dateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 4th 1986"]];
-	[Employee createWithName:@"Alex" dateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 4th 1986"]];
-	[Employee createWithName:@"Luna" dateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 4th 1986"]];
+	[Employee createWithName:@"Quincey" dateOfBirth:DECEMBER_4TH starSign:@"Capricorn"];
+	[Employee createWithName:@"Alex" dateOfBirth:DECEMBER_4TH starSign:@"Aries"];
+	[Employee createWithName:@"Luna" dateOfBirth:DECEMBER_4TH starSign:@"Aries"];
+	[Employee createWithName:@"Luna" dateOfBirth:DECEMBER_4TH starSign:@"Sagittarius"];
 }
 
 - (void)tearDown {
@@ -39,7 +42,7 @@
 }
 
 - (void)testFindByDate {
-	Employee *employee = [Employee findByDateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 4th 1986"]];
+	Employee *employee = [Employee findByDateOfBirth:DECEMBER_4TH];
 	STAssertNotNULL(employee, @"Employee should be found");	
 }
 
@@ -62,37 +65,56 @@
 }
 
 - (void)testFindAllBy {
-	NSArray *employees = [Employee findAllByDateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 4th 1986"]];
-	STAssertTrue([employees count] == 3, @"number of employees found should be 3");
+	NSArray *employees = [Employee findAllByDateOfBirth:DECEMBER_4TH];
+	STAssertTrue([employees count] == 4, @"number of employees found should be 4");
 }
 
 - (void)testFindAllSortBy {
-	NSArray *employees = [Employee findAllByDateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 4th 1986"] 
+	NSArray *employees = [Employee findAllByDateOfBirth:DECEMBER_4TH 
 												 sortBy:@"name"];
-	STAssertTrue([employees count] == 3, @"number of employees found should be 3");
+	STAssertTrue([employees count] == 4, @"number of employees found should be 4");
 	Employee *lastEmployee = nil;
 	for (Employee *e in employees) {
 		if (lastEmployee) {
-			STAssertTrue([lastEmployee.name compare:e.name] == NSOrderedAscending, @"results should be sorted by name");
+			STAssertTrue([lastEmployee.name compare:e.name] == NSOrderedAscending ||
+						 [lastEmployee.name compare:e.name] == NSOrderedSame
+						 , @"results should be sorted by name");
 		}
 		lastEmployee = e;				 
 	}
 }
 
 - (void)testFindAllSortDescending {
-	NSArray *employees = [Employee findAllByDateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 4th 1986"] 
+	NSArray *employees = [Employee findAllByDateOfBirth:DECEMBER_4TH
 									   sortByDescending:@"name"];
-	STAssertTrue([employees count] == 3, @"number of employees found should be 3");
+	STAssertTrue([employees count] == 4, @"number of employees found should be 4");
 	Employee *lastEmployee = nil;
 	for (Employee *e in employees) {
 		if (lastEmployee) {
-			STAssertTrue([lastEmployee.name compare:e.name] == NSOrderedDescending, 
+			STAssertTrue([lastEmployee.name compare:e.name] == NSOrderedDescending ||
+						 [lastEmployee.name compare:e.name] == NSOrderedSame, 
 						 @"results should be in descending order by name");
 		}
 		lastEmployee = e;				 
 	}
 }
 
+- (void)testFindAllMultiSort {
+	NSArray *employees = [Employee findAllByDateOfBirth:DECEMBER_4TH
+									   sortByDescending:@"name"
+												 sortBy:@"starSign"];
+	Employee *lastEmployee = nil;
+	for (Employee *e in employees) {
+		if (lastEmployee) {
+			STAssertTrue([lastEmployee.name compare:e.name] == NSOrderedDescending ||
+						 ([lastEmployee.name compare:e.name] == NSOrderedSame && 
+							  [lastEmployee.starSign compare:e.starSign] == NSOrderedAscending ||
+							  [lastEmployee.starSign compare:e.starSign] == NSOrderedSame), 
+						 @"results should be in descending order by name and ascending by starSign");
+		}
+		lastEmployee = e;				 
+	}
+}
 
 - (void)testCreateObjectWithMoreThan5Attributes {
 	Employee *employee = [Employee createWithName:@"Brian" 
@@ -131,7 +153,7 @@
 
 - (void)testFindOrCreateWithCreatesNew {
 	Employee *employee = [Employee findOrCreateWithName:@"Patrick"];
-	STAssertTrue([[Employee findAllByName:@"Patrick"] count] == 1,
+	STAssertTrue([[Employee findAllByName:employee.name] count] == 1,
 				 @"Should create a new employee if none exists");
 }
 
