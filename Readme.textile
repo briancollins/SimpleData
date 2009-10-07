@@ -49,12 +49,12 @@ h4. Step 5: Enjoy!
 [User createWithEmail:@"john@example.com" name:@"John"];</code></pre>
 * To find an object:
 <pre><code>[User findByName:@"Brian"];
-[User findAll]</code></pre>
+[User findAll]
+NSArray *users = [User findAllByStarSign:@"Libra" sortBy:@"name" sortByDescending:@"createdAt"];</code></pre>
 * To update an object:
 <pre><code>User *u = [User findByName:@"Brian"];
 u.name = @"Brian Collins";
-[u save];
-NSArray *users = [User findAllByStarSign:@"Libra" sortBy:@"name"];</code></pre>
+[u save];</code></pre>
 * Setting non object attributes (unfortunately):
 <pre><code>[User createWithName:@"Brian" 
  smoker:[NSNumber numberWithBool:NO]];</code></pre>
@@ -77,6 +77,4 @@ h4. Limitations
 * Currently,
 ** You may only have one SimpleStore per application.
 ** There is no validation
-** createWithX can only take up to 5 arguments due to the hack currently in place. Use createWithAttributes: for more than that
 ** createdAt and updatedAt columns currently not set
-** Can only sort by a single column and ascending
