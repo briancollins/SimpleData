@@ -67,7 +67,8 @@
 }
 
 - (void)testFindAllSortBy {
-	NSArray *employees = [Employee findAllByDateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 4th 1986"] sortBy:@"name"];
+	NSArray *employees = [Employee findAllByDateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 4th 1986"] 
+												 sortBy:@"name"];
 	STAssertTrue([employees count] == 3, @"number of employees found should be 3");
 	Employee *lastEmployee = nil;
 	for (Employee *e in employees) {
@@ -77,6 +78,21 @@
 		lastEmployee = e;				 
 	}
 }
+
+- (void)testFindAllSortDescending {
+	NSArray *employees = [Employee findAllByDateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 4th 1986"] 
+									   sortByDescending:@"name"];
+	STAssertTrue([employees count] == 3, @"number of employees found should be 3");
+	Employee *lastEmployee = nil;
+	for (Employee *e in employees) {
+		if (lastEmployee) {
+			STAssertTrue([lastEmployee.name compare:e.name] == NSOrderedDescending, 
+						 @"results should be in descending order by name");
+		}
+		lastEmployee = e;				 
+	}
+}
+
 
 - (void)testCreateObjectWithMoreThan5Attributes {
 	Employee *employee = [Employee createWithName:@"Brian" 
