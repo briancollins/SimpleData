@@ -75,6 +75,10 @@ h4. Displaying SimpleData objects in a tableView
 
 h4. Limitations
 * Currently,
-** You may only have one SimpleStore per application.
-** There is no validation
-** createdAt and updatedAt columns currently not set
+** You may only have one SimpleStore open per thread.
+** There is no validation, but the standard coredata validation should still work.
+
+<br />
+
+h4. See Also
+* "SQLite Persistent Objects":http://code.google.com/p/sqlitepersistentobjects/ the same idea but for naked sqlite. More mature.
