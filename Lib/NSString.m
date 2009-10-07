@@ -14,7 +14,7 @@
 // This is not the same as lowercaseString, it only downcases the first character
 - (NSString *)uncapitalizedString {
 	const char *s = [self UTF8String];
-	char *m = malloc(strlen(s));
+	char *m = malloc(strlen(s) + 1);
 	strcpy(m, s);
 	m[0] = tolower(m[0]);
 	NSString *result = [NSString stringWithUTF8String:m];
@@ -24,7 +24,7 @@
 
 - (NSString *)camelizedString {
 	const char *s = [self UTF8String];
-	char *m = malloc(strlen(s));
+	char *m = malloc(strlen(s) + 1);
 	strcpy(m, s);
 	m[0] = toupper(m[0]);
 	NSString *result = [NSString stringWithUTF8String:m];
