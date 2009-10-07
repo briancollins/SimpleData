@@ -24,6 +24,7 @@
 	[Employee createWithName:@"Luna" dateOfBirth:DECEMBER_4TH starSign:@"Sagittarius"];
 }
 
+
 - (void)tearDown {
 	[[SimpleStore currentStore] saveAndClose];
 	[SimpleStore deleteStoreAtPath:@"test.sqlite3"];
@@ -36,25 +37,30 @@
 	STAssertEqualStrings(@"Brian", employee.name, @"Attribute should be set on creation");
 }
 
+
 - (void)testFindObject {
 	Employee *employee = [Employee findByName:@"Alex"];
 	STAssertNotNULL(employee, @"Employee should be found");
 }
+
 
 - (void)testFindByDate {
 	Employee *employee = [Employee findByDateOfBirth:DECEMBER_4TH];
 	STAssertNotNULL(employee, @"Employee should be found");	
 }
 
+
 - (void)testCantFindObject {
 	Employee *employee = [Employee findByName:@"Jack"];
 	STAssertNULL(employee, @"Non-existant employee should not be found");
 }
 
+
 - (void)testCantFindByDate {
 	Employee *employee = [Employee findByDateOfBirth:[NSDate dateWithNaturalLanguageString:@"December 5th 1986"]];
 	STAssertNULL(employee, @"Employee should not be found");	
 }
+
 
 - (void)testUpdateEmployee {
 	Employee *employee = [Employee findByName:@"Alex"];
@@ -64,10 +70,12 @@
 	STAssertNotNULL([Employee findByEmail:@"alex@example.com"], "The updated employee should be findable");
 }
 
+
 - (void)testFindAllBy {
 	NSArray *employees = [Employee findAllByDateOfBirth:DECEMBER_4TH];
 	STAssertTrue([employees count] == 4, @"number of employees found should be 4");
 }
+
 
 - (void)testFindAllSortBy {
 	NSArray *employees = [Employee findAllByDateOfBirth:DECEMBER_4TH 
@@ -84,6 +92,7 @@
 	}
 }
 
+
 - (void)testFindAllSortDescending {
 	NSArray *employees = [Employee findAllByDateOfBirth:DECEMBER_4TH
 									   sortByDescending:@"name"];
@@ -98,6 +107,7 @@
 		lastEmployee = e;				 
 	}
 }
+
 
 - (void)testFindAllMultiSort {
 	NSArray *employees = [Employee findAllByDateOfBirth:DECEMBER_4TH
@@ -116,6 +126,7 @@
 	}
 }
 
+
 - (void)testCreateObjectWithMoreThan5Attributes {
 	Employee *employee = [Employee createWithName:@"Brian" 
 											email:@"brian@example.com" 
@@ -130,12 +141,14 @@
 	STAssertEqualStrings(@"O", employee.bloodType, @"Attribute should be set on creation");
 }
 
+
 - (void)testCreateObjectWithNonPointerAttributes {
 	// currently they must be assigned as NSNumbers or NSValues
 	Employee *employee = [Employee createWithName:@"Gerrard"
 										   smoker:[NSNumber numberWithBool:YES]];
 	STAssertTrue([employee.smoker boolValue] == YES, @"Smoker attribute should be assigned on creation");
 }
+
 
 - (void)testFindOrCreateWithFindsExisting {
 	Employee *employee = [Employee createWithName:@"Alfie"
@@ -150,6 +163,7 @@
 						 [[employee.objectID URIRepresentation] absoluteString], 
 						 @"Both employees should be the same");
 }
+
 
 - (void)testFindOrCreateWithCreatesNew {
 	Employee *employee = [Employee findOrCreateWithName:@"Patrick"];
