@@ -91,6 +91,19 @@
 	return array;
 }
 
+static NSArray *fMethods;
++ (NSArray *)forwardedMethods {
+	if (fMethods) {
+		return fMethods;
+	} else {
+		return fMethods = [[NSArray alloc] initWithObjects:
+						   @"findBy", 
+						   @"findAllBy",
+						   @"createWith",
+						   @"findOrCreateWith",
+						   nil];
+	}
+}
 
 + (NSMethodSignature *)methodSignatureForSelector:(SEL)selector
 {
@@ -98,16 +111,11 @@
 		return [super methodSignatureForSelector:selector];
 	} else {
 		NSString *sel = NSStringFromSelector(selector);
-		if ([sel hasPrefix:@"findBy"]) 
-			return [super methodSignatureForSelector:@selector(find: inColumn:)];
-		else if ([sel hasPrefix:@"findAllBy"])
-			return [super methodSignatureForSelector:@selector(findAll: inColumn: sortBy:)];
-		else if ([sel hasPrefix:@"createWith"])
-			return [NSMethodSignature signatureWithObjCTypes:LOTS_OF_ARGS];
-		else if ([sel hasPrefix:@"findOrCreateWith"])
-			return [NSMethodSignature signatureWithObjCTypes:LOTS_OF_ARGS];
-		else
-			return [super methodSignatureForSelector:selector];
+		for (NSString *key in [self forwardedMethods]) {
+			if ([sel hasPrefix:key])
+				return [NSMethodSignature signatureWithObjCTypes:LOTS_OF_ARGS];
+		}
+		return nil;
 	}	
 }
 
