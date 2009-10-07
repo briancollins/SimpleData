@@ -41,7 +41,7 @@
 	for (NSString *attr in attributes) {
 		[obj setValue:[attributes objectForKey:attr] forKey:attr];
 	}
-	return obj;
+	return [obj autorelease];
 }
 
 + (id)find:(id)obj inColumn:(NSString *)col {
