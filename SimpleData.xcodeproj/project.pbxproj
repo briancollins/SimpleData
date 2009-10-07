@@ -41,6 +41,8 @@
 		D3CA0B0D1079934300BBF55F /* SimpleModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CA0B0C1079934300BBF55F /* SimpleModelTest.m */; };
 		D3CA0B581079BAF100BBF55F /* UIApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CA0B571079BAF100BBF55F /* UIApplication.m */; };
 		D3CA0B591079BB2500BBF55F /* UIApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CA0B571079BAF100BBF55F /* UIApplication.m */; };
+		D3D7D87D107C45EA00690C20 /* NSMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D7D87C107C45EA00690C20 /* NSMutableArray.m */; };
+		D3D7D87E107C45EA00690C20 /* NSMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D7D87C107C45EA00690C20 /* NSMutableArray.m */; };
 		D3E864F11077DCE40079694D /* SimpleStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E864F01077DCE40079694D /* SimpleStore.m */; };
 /* End PBXBuildFile section */
 
@@ -317,6 +319,8 @@
 		D3CA0B0C1079934300BBF55F /* SimpleModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleModelTest.m; sourceTree = "<group>"; };
 		D3CA0B561079BAF100BBF55F /* UIApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIApplication.h; sourceTree = "<group>"; };
 		D3CA0B571079BAF100BBF55F /* UIApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIApplication.m; sourceTree = "<group>"; };
+		D3D7D87B107C45EA00690C20 /* NSMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSMutableArray.h; sourceTree = "<group>"; };
+		D3D7D87C107C45EA00690C20 /* NSMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMutableArray.m; sourceTree = "<group>"; };
 		D3E864EF1077DCE40079694D /* SimpleStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleStore.h; sourceTree = "<group>"; };
 		D3E864F01077DCE40079694D /* SimpleStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -776,6 +780,8 @@
 				D3CA0B571079BAF100BBF55F /* UIApplication.m */,
 				D315AD4D107B00CF00A3897D /* NSObject.h */,
 				D315AD4E107B00CF00A3897D /* NSObject.m */,
+				D3D7D87B107C45EA00690C20 /* NSMutableArray.h */,
+				D3D7D87C107C45EA00690C20 /* NSMutableArray.m */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -951,6 +957,7 @@
 				D3874FC3107867FD00F290C2 /* NSString.m in Sources */,
 				D3CA0B591079BB2500BBF55F /* UIApplication.m in Sources */,
 				D315AD50107B00CF00A3897D /* NSObject.m in Sources */,
+				D3D7D87E107C45EA00690C20 /* NSMutableArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -971,6 +978,7 @@
 				D3CA0B581079BAF100BBF55F /* UIApplication.m in Sources */,
 				D315AD2B107AFDEF00A3897D /* Employee.m in Sources */,
 				D315AD4F107B00CF00A3897D /* NSObject.m in Sources */,
+				D3D7D87D107C45EA00690C20 /* NSMutableArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

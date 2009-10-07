@@ -9,6 +9,7 @@
 #import "SimpleModel.h"
 #import "SimpleStore.h"
 #import "NSString.h"
+#import "NSMutableArray.h"
 
 #define LOTS_OF_ARGS "@^v@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 
@@ -20,19 +21,11 @@
 							 limit: 0];
 }
 
+
 - (BOOL)save {
 	return [[SimpleStore currentStore] save];
 }
 
-
-+ (id)findUsingColumn:(NSString *)col orCreateWithAttributes:(NSDictionary *)attributes {
-	NSLog(@"%@ %@", col, [attributes objectForKey:col]);
-	id obj;
-	if (obj = [self find:[attributes objectForKey:col] inColumn:col])
-		return obj;
-	else
-		return [self createWithAttributes:attributes];
-}
 
 + (id)createWithAttributes:(NSDictionary *)attributes {
 	id obj = [[self alloc] initWithEntity:[NSEntityDescription entityForName:self.description
@@ -43,6 +36,7 @@
 	}
 	return [obj autorelease];
 }
+
 
 + (id)find:(id)obj inColumn:(NSString *)col {
 	NSArray *result = [self findWithPredicate: [NSPredicate predicateWithFormat:
@@ -56,28 +50,20 @@
 	
 }
 
-+ (NSArray *)findAll:(id)obj inColumn:(NSString *)col sortBy:(NSString *)sortCol {
-	return [self findWithPredicate: [NSPredicate predicateWithFormat:
-												[NSString stringWithFormat:@"%@ = %%@", col], obj]
-										limit: 0
-									   sortBy: sortCol];
-}
-
 
 + (id)findWithPredicate:(NSPredicate *)predicate limit:(NSUInteger)limit {
-	return [self findWithPredicate:predicate limit:limit sortBy:@""];
+	return [self findWithPredicate:predicate limit:limit sortBy:nil];
 }
 
 
-+ (id)findWithPredicate:(NSPredicate *)predicate limit:(NSUInteger)limit sortBy:(NSString *)sortCol {
+
++ (id)findWithPredicate:(NSPredicate *)predicate limit:(NSUInteger)limit sortBy:(NSMutableArray *)sortDescriptors {
 	NSManagedObjectContext *moc = [[SimpleStore currentStore] managedObjectContext];
 	NSEntityDescription *entityDescription = [NSEntityDescription
 											  entityForName:self.description inManagedObjectContext:moc];
 	NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
 	
-	if ([sortCol length] > 0)
-		[request setSortDescriptors:
-		 [NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:sortCol ascending:YES] autorelease]]];
+	request.sortDescriptors = sortDescriptors;
 	
 	[request setEntity:entityDescription];
 	
@@ -91,102 +77,114 @@
 	return array;
 }
 
-static NSArray *fMethods;
+
 + (NSArray *)forwardedMethods {
-	if (fMethods) {
-		return fMethods;
-	} else {
-		return fMethods = [[NSArray alloc] initWithObjects:
-						   @"findBy", 
-						   @"findAllBy",
-						   @"createWith",
-						   @"findOrCreateWith",
-						   nil];
-	}
+	return [NSArray arrayWithObjects:@"findBy", @"findAllBy", @"createWith",
+			@"findOrCreateWith", nil];
 }
+
+
++ (NSString *)willForward:(SEL)selector {
+	NSString *sel = NSStringFromSelector(selector);
+	for (NSString *key in [self forwardedMethods]) {
+		if ([sel hasPrefix:key])
+			return key;
+	}
+	return nil;
+}
+
+
++ (NSMutableArray *)attributesForInvocation:(NSInvocation *)invocation withSelectorString:(NSString *)sel {
+	NSArray *chunks = [[[NSStringFromSelector(invocation.selector) after:sel] uncapitalizedString] 
+					   componentsSeparatedByString: @":"];
+	NSMutableArray *attributes = [NSMutableArray arrayWithCapacity:5];
+	int i = 2;
+	for (NSString *chunk in chunks) {
+		if (![chunk isEqualToString:@""]) {
+			id arg;
+			[invocation getArgument:&arg atIndex:i++];
+			[attributes addObject:chunk];
+			[attributes addObject:arg];
+		}
+	}
+	return attributes;
+}
+
 
 + (NSMethodSignature *)methodSignatureForSelector:(SEL)selector
 {
-	if ([self respondsToSelector:selector]) {
+	if ([self respondsToSelector:selector]) 
 		return [super methodSignatureForSelector:selector];
-	} else {
-		NSString *sel = NSStringFromSelector(selector);
-		for (NSString *key in [self forwardedMethods]) {
-			if ([sel hasPrefix:key])
-				return [NSMethodSignature signatureWithObjCTypes:LOTS_OF_ARGS];
-		}
+	else if ([self willForward:selector]) 
+		return [NSMethodSignature signatureWithObjCTypes:LOTS_OF_ARGS];
+	else
 		return nil;
-	}	
 }
 
 
 + (void)forwardInvocation:(NSInvocation *)invocation {
-	NSString *sel = NSStringFromSelector(invocation.selector);
-	
-	if ([sel hasPrefix:@"findBy"]) {
-		NSString *column = [sel stringByReplacingCharactersInRange:NSMakeRange(0, 6) withString:@""];
-		column = [column stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@":"]];
-		column = [column uncapitalizedString];
-		[invocation setSelector:@selector(find: inColumn:)];
-		[invocation setArgument:&column atIndex:3];
+	NSString *sel;
+	if (sel = [self willForward:invocation.selector]) {
+		NSArray *attrs = [self attributesForInvocation:invocation withSelectorString:sel];
+		[invocation setArgument:&attrs atIndex:2];
+		[invocation setSelector:NSSelectorFromString([NSString stringWithFormat:@"_%@:", sel])];
 		[invocation invokeWithTarget:self];
-	} else if ([sel hasPrefix:@"findAllBy"]) {
-		NSArray *chunks = [[sel stringByReplacingCharactersInRange:NSMakeRange(0, 9) withString:@""] componentsSeparatedByString: @":"];
-
-		if ([[chunks objectAtIndex:1] isEqualToString:@"sortBy"]) {
-			NSString *sortBy;
-			[invocation getArgument:&sortBy atIndex:3];
-			[invocation setArgument:&sortBy atIndex:4];
-		} else {
-			NSString *empty = @"";
-			[invocation setArgument:&empty atIndex:4];
-		}
-		
-		NSString *col = [[chunks objectAtIndex:0] uncapitalizedString];
-		[invocation setArgument:&col atIndex:3];
-		
-		[invocation setSelector:@selector(findAll: inColumn: sortBy:)];
-		[invocation invokeWithTarget:self];
-	} else if ([sel hasPrefix:@"createWith"]) {
-		NSArray *chunks = [[sel stringByReplacingCharactersInRange:NSMakeRange(0, 10) withString:@""] componentsSeparatedByString: @":"];
-		NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithCapacity:[chunks count] - 1];
-		int i = 2;
-		for (NSString *chunk in chunks) {
-			if ([chunk length] > 0) {
-				id o;
-				[invocation getArgument:&o atIndex:i];
-				[attributes setObject:o forKey:[chunk uncapitalizedString]];
-				i++;
-			}
-			
-		}
-		
-		[invocation setSelector:@selector(createWithAttributes:)];
-		[invocation setArgument:&attributes atIndex:2];
-		[invocation invokeWithTarget:self];
-	} else if ([sel hasPrefix:@"findOrCreateWith"]) {
-		NSArray *chunks = [[sel stringByReplacingCharactersInRange:NSMakeRange(0, 16) withString:@""] componentsSeparatedByString: @":"];
-		NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithCapacity:[chunks count] - 1];
-		int i = 2;
-		
-		for (NSString *chunk in chunks) {
-			if ([chunk length] > 0) {
-				id o;
-				[invocation getArgument:&o atIndex:i];
-				[attributes setObject:o forKey:[chunk uncapitalizedString]];
-				i++;
-			}
-		}
-		
-		id col = [[chunks objectAtIndex:0] uncapitalizedString];
-		[invocation setArgument:&col atIndex:2];
-		
-		
-		[invocation setSelector:@selector(findUsingColumn:orCreateWithAttributes:)];
-		[invocation setArgument:&attributes atIndex:3];
-		[invocation invokeWithTarget:self];
-		
 	}
+}
+
+
++ (id)_createWith:(NSMutableArray *)attributes {
+	id obj = [[self alloc] initWithEntity:[NSEntityDescription entityForName:self.description
+													  inManagedObjectContext:[[SimpleStore currentStore] managedObjectContext]] 
+		   insertIntoManagedObjectContext:[[SimpleStore currentStore] managedObjectContext]];
+	while ([attributes count] > 0) {
+		NSString *key = [attributes shift];
+		[obj setValue:[attributes shift] forKey:key];
+	}
+	return [obj autorelease];	
+}
+
+
++ (id)_findBy:(NSMutableArray *)attributes {
+	return [self find:[attributes objectAtIndex:1] inColumn:[attributes objectAtIndex:0]];
+}
+
+
++ (NSMutableArray *)sortDescriptorsFromAttributes:(NSMutableArray *)attributes {
+	NSMutableArray *sortDescriptors = [NSMutableArray arrayWithCapacity:2];
+	
+	while ([attributes count] > 0) {
+		NSString *sortBy = [attributes shift];
+		
+		if ([sortBy isEqualToString:@"sortByDescending"]) {
+			[sortDescriptors addObject:[[[NSSortDescriptor alloc] initWithKey:[attributes shift] ascending:NO] autorelease]];
+		} else if ([sortBy isEqualToString:@"sortBy"]) {
+				[sortDescriptors addObject:[[[NSSortDescriptor alloc] initWithKey:[attributes shift] ascending:YES] autorelease]];
+		} else { 
+			@throw([NSException exceptionWithName:@"Unexpected Argument" reason:@"Bad sort descriptor" userInfo:nil]);
+		}
+	}
+	
+	return [sortDescriptors count] == 0 ? nil : sortDescriptors;
+}
+
+
++ (id)_findAllBy:(NSMutableArray *)attributes {
+	NSString *col = [attributes shift];
+	id val = [attributes shift];
+	
+	return [self findWithPredicate:[NSPredicate predicateWithFormat:
+									[NSString stringWithFormat:@"%@ = %%@", col], val]
+							 limit:0
+							sortBy:[self sortDescriptorsFromAttributes:attributes]];
+}
+
++ (id)_findOrCreateWith:(NSMutableArray *)attributes {
+	id obj;
+	if (obj = [self find:[attributes objectAtIndex:1] inColumn:[attributes objectAtIndex:0]]) 
+		return obj;
+	else 
+		return [self _createWith:attributes];
 }
 
 @end
