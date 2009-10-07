@@ -12,5 +12,7 @@
 
 - (BOOL)hasSubstring:(NSString *)substring;
 - (NSString *)uncapitalizedString;
+- (NSString *)camelizedString;
+- (NSString *)after:(NSString *)substring;
 
 @end

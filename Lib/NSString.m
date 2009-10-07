@@ -22,8 +22,26 @@
 	return result;
 }
 
+- (NSString *)camelizedString {
+	const char *s = [self UTF8String];
+	char *m = malloc(strlen(s));
+	strcpy(m, s);
+	m[0] = toupper(m[0]);
+	NSString *result = [NSString stringWithUTF8String:m];
+	free(m);
+	return result;
+}
+
 - (BOOL)hasSubstring:(NSString *)substring {
 	return [self rangeOfString:substring].location != NSNotFound;
+}
+
+- (NSString *)after:(NSString *)substring {
+	NSRange r = [self rangeOfString:substring];
+	if (r.location == NSNotFound)
+		return @"";
+	else
+		return [self substringFromIndex:r.location + r.length];
 }
 
 @end
