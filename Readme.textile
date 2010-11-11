@@ -22,7 +22,7 @@ h2. Step 3: Create the class representations
 * Click Next. The correct location and targets should have been selected for you. Click Next to accept them.
 * You should see the Entity selection pane, with the Event entity selected. The “Generate accessors” and “Generate Objective-C 2.0 properties” options should also be selected.
 * Click Finish to generate the files.
-* In the header files for the generated classes, replace ": NSManagedObject" with ": SimpleModel"
+* Subclass the generated classes so you can make additions (such as method prototypes) 
 
 You are now ready to start working with SimpleData
 
@@ -31,6 +31,7 @@ h2. Step 4: Create a SimpleStore
 <code>#import <SimpleStore.h></code>
 * To create or open an existing database simply call:
 <code>[SimpleStore storeWithPath:@"path"];</code>
+* You should probably put the store in the documents directory.
 
 h2. Step 5: Enjoy!
 * To create an object:

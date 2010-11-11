@@ -2,8 +2,8 @@
 //  Employee.m
 //  SimpleData
 //
-//  Created by Brian Collins on 09-10-05.
-//  Copyright 2009 Brian Collins. All rights reserved.
+//  Created by Brian Collins on 10-11-11.
+//  Copyright 2010 Brian Collins. All rights reserved.
 //
 
 #import "Employee.h"

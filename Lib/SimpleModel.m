@@ -13,7 +13,20 @@
 
 #define LOTS_OF_ARGS "@^v@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 
-@implementation SimpleModel
+@implementation NilObject
+
++ (id)sharedInstance {
+	static NilObject *sharedNilObject = nil;
+	if (!sharedNilObject) {
+		sharedNilObject = [[self alloc] init];
+	}
+	return sharedNilObject;
+}
+
+@end
+
+
+@implementation NSManagedObject (SimpleModel)
 
 
 + (NSArray *)findAll {
@@ -21,33 +34,31 @@
 							 limit: 0];
 }
 
-
 - (BOOL)save {
 	return [[SimpleStore currentStore] save];
 }
 
 
 + (id)createWithAttributes:(NSDictionary *)attributes {
-	id obj = [[self alloc] initWithEntity:[NSEntityDescription entityForName:self.description
-													  inManagedObjectContext:[[SimpleStore currentStore] managedObjectContext]] 
+	id obj = [[self alloc] initWithEntity:[self entity] 
 		   insertIntoManagedObjectContext:[[SimpleStore currentStore] managedObjectContext]];
 	for (NSString *attr in attributes) {
 		[obj setValue:[attributes objectForKey:attr] forKey:attr];
 	}
+	[obj save];
 	return [obj autorelease];
 }
 
 
 + (id)find:(id)obj inColumn:(NSString *)col {
-	NSArray *result = [self findWithPredicate: [NSPredicate predicateWithFormat:
-												[NSString stringWithFormat:@"%@ = %%@", col], obj]
-										limit: 1];
+	NSArray *result = [self findWithPredicate:[NSPredicate predicateWithFormat:
+											   [NSString stringWithFormat:@"%@ = %%@", col], obj]
+										limit:1];
 	if (result && [result count] > 0) {
 		return [result objectAtIndex:0];
 	} else {
 		return nil;
 	}
-	
 }
 
 
@@ -59,8 +70,7 @@
 
 + (id)findWithPredicate:(NSPredicate *)predicate limit:(NSUInteger)limit sortBy:(NSMutableArray *)sortDescriptors {
 	NSManagedObjectContext *moc = [[SimpleStore currentStore] managedObjectContext];
-	NSEntityDescription *entityDescription = [NSEntityDescription
-											  entityForName:self.description inManagedObjectContext:moc];
+	NSEntityDescription *entityDescription = [self entity];
 	NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
 	
 	request.sortDescriptors = sortDescriptors;
@@ -103,6 +113,8 @@
 		if (![chunk isEqualToString:@""]) {
 			id arg;
 			[invocation getArgument:&arg atIndex:i++];
+			if (!arg)
+				arg = [NilObject sharedInstance];
 			[attributes addObject:chunk];
 			[attributes addObject:arg];
 		}
@@ -111,8 +123,7 @@
 }
 
 
-+ (NSMethodSignature *)methodSignatureForSelector:(SEL)selector
-{
++ (NSMethodSignature *)methodSignatureForSelector:(SEL)selector {
 	if ([self respondsToSelector:selector]) 
 		return [super methodSignatureForSelector:selector];
 	else if ([self willForward:selector]) 
@@ -134,8 +145,7 @@
 
 
 + (id)_createWith:(NSMutableArray *)attributes {
-	id obj = [[self alloc] initWithEntity:[NSEntityDescription entityForName:self.description
-													  inManagedObjectContext:[[SimpleStore currentStore] managedObjectContext]] 
+	id obj = [[self alloc] initWithEntity:[self entity]
 		   insertIntoManagedObjectContext:[[SimpleStore currentStore] managedObjectContext]];
 	while ([attributes count] > 0) {
 		NSString *key = [attributes shift];
@@ -185,6 +195,17 @@
 		return obj;
 	else 
 		return [self _createWith:attributes];
+}
+
++ (NSEntityDescription *)entity {
+	Class c = self, p = self;
+	while (c && c != [NSManagedObject class]) {
+		p = c;
+		c = [c superclass];
+	}
+	
+	if (!c) return nil;
+	return [NSEntityDescription entityForName:[p description] inManagedObjectContext:[[SimpleStore currentStore] managedObjectContext]];
 }
 
 @end

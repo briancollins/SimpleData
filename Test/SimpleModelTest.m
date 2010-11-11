@@ -8,7 +8,7 @@
 
 #import "SimpleStoreTest.h"
 #import "SimpleStore.h"
-#import "Employee.h"
+#import "SDEmployee.h"
 #import "SimpleModelTest.h"
 
 #define DECEMBER_4TH [NSDate dateWithTimeIntervalSince1970:534103200]
@@ -19,10 +19,10 @@
 
 - (void)setUp {
     [SimpleStore storeWithPath:@"test.sqlite3"];
-	[Employee createWithName:@"Quincey" dateOfBirth:DECEMBER_4TH starSign:@"Capricorn"];
-	[Employee createWithName:@"Alex" dateOfBirth:DECEMBER_4TH starSign:@"Aries"];
-	[Employee createWithName:@"Luna" dateOfBirth:DECEMBER_4TH starSign:@"Aries"];
-	[Employee createWithName:@"Luna" dateOfBirth:DECEMBER_4TH starSign:@"Sagittarius"];
+	[SDEmployee createWithName:@"Quincey" dateOfBirth:DECEMBER_4TH starSign:@"Capricorn"];
+	[SDEmployee createWithName:@"Alex" dateOfBirth:DECEMBER_4TH starSign:@"Aries"];
+	[SDEmployee createWithName:@"Luna" dateOfBirth:DECEMBER_4TH starSign:@"Aries"];
+	[SDEmployee createWithName:@"Luna" dateOfBirth:DECEMBER_4TH starSign:@"Sagittarius"];
 }
 
 
@@ -33,53 +33,53 @@
 
 
 - (void)testCreateObject {
-	Employee *employee = [Employee createWithName:@"Brian"];
+	SDEmployee *employee = [SDEmployee createWithName:@"Brian"];
 	STAssertNotNULL(employee, @"Employee object should be created");
 	STAssertEqualStrings(@"Brian", employee.name, @"Attribute should be set on creation");
 }
 
 
 - (void)testFindObject {
-	Employee *employee = [Employee findByName:@"Alex"];
+	SDEmployee *employee = [SDEmployee findByName:@"Alex"];
 	STAssertNotNULL(employee, @"Employee should be found");
 }
 
 
 - (void)testFindByDate {
-	Employee *employee = [Employee findByDateOfBirth:DECEMBER_4TH];
+	SDEmployee *employee = [SDEmployee findByDateOfBirth:DECEMBER_4TH];
 	STAssertNotNULL(employee, @"Employee should be found");	
 }
 
 
 - (void)testCantFindObject {
-	Employee *employee = [Employee findByName:@"Jack"];
+	SDEmployee *employee = [SDEmployee findByName:@"Jack"];
 	STAssertNULL(employee, @"Non-existant employee should not be found");
 }
 
 
 - (void)testCantFindByDate {
-	Employee *employee = [Employee findByDateOfBirth:JUNE_11TH];
+	SDEmployee *employee = [SDEmployee findByDateOfBirth:JUNE_11TH];
 	STAssertNULL(employee, @"Employee should not be found");	
 }
 
 
 - (void)testUpdateEmployee {
-	Employee *employee = [Employee findByName:@"Alex"];
+	SDEmployee *employee = [SDEmployee findByName:@"Alex"];
 	employee.email = @"alex@example.com";
 	
 	STAssertTrue([employee save], @"The employee should be saved");
-	STAssertNotNULL([Employee findByEmail:@"alex@example.com"], @"The updated employee should be findable");
+	STAssertNotNULL([SDEmployee findByEmail:@"alex@example.com"], @"The updated employee should be findable");
 }
 
 
 - (void)testFindAllBy {
-	NSArray *employees = [Employee findAllByDateOfBirth:DECEMBER_4TH];
+	NSArray *employees = [SDEmployee findAllByDateOfBirth:DECEMBER_4TH];
 	STAssertTrue([employees count] == 4, @"number of employees found should be 4");
 }
 
 
 - (void)testFindAllSortBy {
-	NSArray *employees = [Employee findAllByDateOfBirth:DECEMBER_4TH 
+	NSArray *employees = [SDEmployee findAllByDateOfBirth:DECEMBER_4TH 
 												 sortBy:@"name"];
 	STAssertTrue([employees count] == 4, @"number of employees found should be 4");
 	Employee *lastEmployee = nil;
@@ -95,7 +95,7 @@
 
 
 - (void)testFindAllSortDescending {
-	NSArray *employees = [Employee findAllByDateOfBirth:DECEMBER_4TH
+	NSArray *employees = [SDEmployee findAllByDateOfBirth:DECEMBER_4TH
 									   sortByDescending:@"name"];
 	STAssertTrue([employees count] == 4, @"number of employees found should be 4");
 	Employee *lastEmployee = nil;
@@ -111,7 +111,7 @@
 
 
 - (void)testFindAllMultiSort {
-	NSArray *employees = [Employee findAllByDateOfBirth:DECEMBER_4TH
+	NSArray *employees = [SDEmployee findAllByDateOfBirth:DECEMBER_4TH
 									   sortByDescending:@"name"
 												 sortBy:@"starSign"];
 	Employee *lastEmployee = nil;
@@ -129,7 +129,7 @@
 
 
 - (void)testCreateObjectWithMoreThan5Attributes {
-	Employee *employee = [Employee createWithName:@"Brian" 
+	Employee *employee = [SDEmployee createWithName:@"Brian" 
 											email:@"brian@example.com" 
 										 starSign:@"libra"
 										createdAt:[NSDate date]
@@ -145,20 +145,20 @@
 
 - (void)testCreateObjectWithNonPointerAttributes {
 	// currently they must be assigned as NSNumbers or NSValues
-	Employee *employee = [Employee createWithName:@"Gerrard"
+	Employee *employee = [SDEmployee createWithName:@"Gerrard"
 										   smoker:[NSNumber numberWithBool:YES]];
 	STAssertTrue([employee.smoker boolValue] == YES, @"Smoker attribute should be assigned on creation");
 }
 
 
 - (void)testFindOrCreateWithFindsExisting {
-	Employee *employee = [Employee createWithName:@"Alfie"
+	Employee *employee = [SDEmployee createWithName:@"Alfie"
 											email:@"alfie@example.com"];
-	Employee *newEmployee = [Employee findOrCreateWithEmail:@"alfie@example.com"
+	Employee *newEmployee = [SDEmployee findOrCreateWithEmail:@"alfie@example.com"
 													   name:@"Alfie Jones"];
 	STAssertEqualStrings(@"Alfie", [newEmployee name], 
 						 @"findOrCreateWithEmail should return in case of existing employee");
-	STAssertTrue([[Employee findAllByEmail:@"alfie@example.com"] count] == 1,
+	STAssertTrue([[SDEmployee findAllByEmail:@"alfie@example.com"] count] == 1,
 				 @"Should not create a new employee if already exists");
 	STAssertEqualStrings([[newEmployee.objectID URIRepresentation] absoluteString], 
 						 [[employee.objectID URIRepresentation] absoluteString], 
@@ -167,8 +167,8 @@
 
 
 - (void)testFindOrCreateWithCreatesNew {
-	Employee *employee = [Employee findOrCreateWithName:@"Patrick"];
-	STAssertTrue([[Employee findAllByName:employee.name] count] == 1,
+	Employee *employee = [SDEmployee findOrCreateWithName:@"Patrick"];
+	STAssertTrue([[SDEmployee findAllByName:employee.name] count] == 1,
 				 @"Should create a new employee if none exists");
 }
 

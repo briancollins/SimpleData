@@ -7,9 +7,9 @@
 //
 #import <CoreData/CoreData.h>
 
-@interface SimpleModel : NSManagedObject {
+@interface NSManagedObject (SimpleModel)
 
-}
++ (NSEntityDescription *)entity;
 
 + (id)createWithAttributes:(NSDictionary *)attributes;
 + (id)findWithPredicate:(NSPredicate *)predicate limit:(NSUInteger)limit;
@@ -18,5 +18,12 @@
 + (id)findWithPredicate:(NSPredicate *)predicate limit:(NSUInteger)limit sortBy:(NSMutableArray *)sortCol;
 + (void)forwardInvocation:(NSInvocation *)invocation;
 - (BOOL)save;
+
+@end
+
+
+@interface NilObject : NSObject
+
++ (id)sharedInstance;
 
 @end
