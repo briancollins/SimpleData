@@ -153,8 +153,8 @@
 
 
 - (void)testFindOrCreateWithFindsExisting {
-	Employee *employee = [SDEmployee createWithName:@"Alfie"
-											email:@"alfie@example.com"];
+	Employee *employee = [SDEmployee findOrCreateWithEmail:@"alfie@example.com"
+											name:@"Alfie"];
 	Employee *newEmployee = [SDEmployee findOrCreateWithEmail:@"alfie@example.com"
 													   name:@"Alfie Jones"];
 	STAssertEqualStrings(@"Alfie", [newEmployee name], 
@@ -164,6 +164,8 @@
 	STAssertEqualStrings([[newEmployee.objectID URIRepresentation] absoluteString], 
 						 [[employee.objectID URIRepresentation] absoluteString], 
 						 @"Both employees should be the same");
+	
+	
 }
 
 

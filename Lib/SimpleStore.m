@@ -110,6 +110,7 @@ static NSString *savedPath;
 - (BOOL)close {
 	[[[NSThread currentThread] threadDictionary] removeObjectForKey:SIMPLE_STORE_KEY];
 	[self release];
+	savedPath = nil;
 	return YES;
 }
 

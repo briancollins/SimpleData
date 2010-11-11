@@ -45,7 +45,7 @@
 	for (NSString *attr in attributes) {
 		[obj setValue:[attributes objectForKey:attr] forKey:attr];
 	}
-	[obj save];
+
 	return [obj autorelease];
 }
 
@@ -83,6 +83,7 @@
 	[request setPredicate:predicate];
 	
 	NSError *error = nil;
+
 	NSArray *array = [moc executeFetchRequest:request error:&error];
 	return array;
 }
@@ -151,6 +152,7 @@
 		NSString *key = [attributes shift];
 		[obj setValue:[attributes shift] forKey:key];
 	}
+	
 	return [obj autorelease];	
 }
 
@@ -190,8 +192,8 @@
 }
 
 + (id)_findOrCreateWith:(NSMutableArray *)attributes {
-	id obj;
-	if ((obj = [self find:[attributes objectAtIndex:1] inColumn:[attributes objectAtIndex:0]])) 
+	id obj = [self find:[attributes objectAtIndex:1] inColumn:[attributes objectAtIndex:0]];
+	if (obj) 
 		return obj;
 	else 
 		return [self _createWith:attributes];

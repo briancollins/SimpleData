@@ -8,8 +8,7 @@
 
 #import "SimpleStoreTest.h"
 #import "SimpleStore.h"
-#import "Employee.h"
-#import <Foundation/Foundation.h>
+#import "SDEmployee.h"
 
 @implementation SimpleStoreTest
 
@@ -39,18 +38,18 @@
 }
 
 - (void)testSaveAndCloseWithChanges {
-	[Employee createWithName:@"Roger"];
+	[SDEmployee createWithName:@"Roger"];
 	STAssertTrue([[SimpleStore currentStore] saveAndClose], @"saveAndClose should work with changes");
 	STAssertNULL([SimpleStore currentStore], @"CurrentStore should not be defined");
 	[SimpleStore storeWithPath:@"test.sqlite3"];
 }
 
 - (void)testCloseWithoutSave {
-	[Employee createWithName:@"Jason"];
+	[SDEmployee createWithName:@"Jason"];
 	[(SimpleStore *)[SimpleStore currentStore] close];
 	STAssertNULL([SimpleStore currentStore], @"CurrentStore should not be defined");
 	[SimpleStore storeWithPath:@"test.sqlite3"];
-	STAssertNULL([Employee findByName:@"Jason"], @"Unsaved record should not exist");
+	STAssertNULL([SDEmployee findByName:@"Jason"], @"Unsaved record should not exist");
 }
 
 
