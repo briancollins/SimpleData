@@ -12,10 +12,19 @@
 
 @implementation SimpleStore
 @synthesize path;
+static NSString *savedPath;
 
++ (void)load {
+	savedPath = nil;
+}
 
 + (id)currentStore {
-	return [[[NSThread currentThread] threadDictionary] objectForKey:SIMPLE_STORE_KEY];
+	id threadStore = [[[NSThread currentThread] threadDictionary] objectForKey:SIMPLE_STORE_KEY];
+	if (threadStore == nil && savedPath != nil) {
+		threadStore = [self storeWithPath:savedPath];
+	}
+	
+	return threadStore;
 }
 
 
@@ -29,6 +38,7 @@
 
 
 + (id)storeWithPath:(NSString *)p {
+	savedPath = p;
 	id current = [[SimpleStore alloc] initWithPath:[self storePath:p]];
 	[[[NSThread currentThread] threadDictionary] setObject:current forKey:SIMPLE_STORE_KEY];
 	return current;
