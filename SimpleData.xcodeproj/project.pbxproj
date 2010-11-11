@@ -7,24 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D3623260D0F684500981E51 /* SimpleDataAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* SimpleDataAppDelegate.m */; };
-		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
-		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		28860B770F44E54D00985440 /* SimpleData.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 28860B760F44E54D00985440 /* SimpleData.xcdatamodel */; };
-		28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28860BE40F44EE6400985440 /* CoreData.framework */; };
-		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
-		2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E55F0DE3E45000AC0155 /* RootViewController.xib */; };
-		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
-		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
-		D30234971077F5A300EDF004 /* Readme.textile in Resources */ = {isa = PBXBuildFile; fileRef = D30234961077F5A300EDF004 /* Readme.textile */; };
-		D30234A61077FC8400EDF004 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D30234A51077FC8400EDF004 /* User.m */; };
-		D30234D51077FDF300EDF004 /* SDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D30234D41077FDF300EDF004 /* SDTableViewController.m */; };
-		D30234EA107817D500EDF004 /* SimpleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D30234E9107817D500EDF004 /* SimpleModel.m */; };
-		D315AD2B107AFDEF00A3897D /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = D315AD2A107AFDEF00A3897D /* Employee.m */; };
 		D315AD4F107B00CF00A3897D /* NSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D315AD4E107B00CF00A3897D /* NSObject.m */; };
-		D315AD50107B00CF00A3897D /* NSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D315AD4E107B00CF00A3897D /* NSObject.m */; };
-		D3874FC3107867FD00F290C2 /* NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = D3874FC2107867FD00F290C2 /* NSString.m */; };
 		D387529C10793D9C00F290C2 /* SimpleStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E864F01077DCE40079694D /* SimpleStore.m */; };
 		D387529D10793DA900F290C2 /* SimpleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D30234E9107817D500EDF004 /* SimpleModel.m */; };
 		D38752A510793DF900F290C2 /* SimpleStoreTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D387529F10793DD800F290C2 /* SimpleStoreTest.m */; };
@@ -40,20 +23,12 @@
 		D387544D1079466900F290C2 /* HelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D387544C1079466900F290C2 /* HelperTest.m */; };
 		D3CA0B0D1079934300BBF55F /* SimpleModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CA0B0C1079934300BBF55F /* SimpleModelTest.m */; };
 		D3CA0B581079BAF100BBF55F /* UIApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CA0B571079BAF100BBF55F /* UIApplication.m */; };
-		D3CA0B591079BB2500BBF55F /* UIApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CA0B571079BAF100BBF55F /* UIApplication.m */; };
+		D3D3AD78128C28420072AD4D /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D3AD77128C28420072AD4D /* Employee.m */; };
+		D3D3AD7C128C28530072AD4D /* SDEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D3AD7B128C28530072AD4D /* SDEmployee.m */; };
 		D3D7D87D107C45EA00690C20 /* NSMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D7D87C107C45EA00690C20 /* NSMutableArray.m */; };
-		D3D7D87E107C45EA00690C20 /* NSMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D7D87C107C45EA00690C20 /* NSMutableArray.m */; };
-		D3E864F11077DCE40079694D /* SimpleStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E864F01077DCE40079694D /* SimpleStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D387529A10793D8F00F290C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
-			remoteInfo = SimpleData;
-		};
 		D387539C10793ED700F290C2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D387533810793ED600F290C2 /* GTM.xcodeproj */;
@@ -100,29 +75,14 @@
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D3623240D0F684500981E51 /* SimpleDataAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleDataAppDelegate.h; sourceTree = "<group>"; };
-		1D3623250D0F684500981E51 /* SimpleDataAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDataAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* SimpleData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		28860B760F44E54D00985440 /* SimpleData.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = SimpleData.xcdatamodel; sourceTree = "<group>"; };
 		28860BE40F44EE6400985440 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		2899E55F0DE3E45000AC0155 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
-		28A0AAE50D9B0CCF005BE974 /* SimpleData_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleData_Prefix.pch; sourceTree = "<group>"; };
-		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		28C286DF0D94DF7D0034E888 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8D1107310486CEB800E47090 /* SimpleData-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SimpleData-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D30234961077F5A300EDF004 /* Readme.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.textile; sourceTree = "<group>"; };
-		D30234A41077FC8400EDF004 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		D30234A51077FC8400EDF004 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		D30234D31077FDF300EDF004 /* SDTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTableViewController.h; sourceTree = "<group>"; };
 		D30234D41077FDF300EDF004 /* SDTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTableViewController.m; sourceTree = "<group>"; };
 		D30234E8107817D500EDF004 /* SimpleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleModel.h; sourceTree = "<group>"; };
 		D30234E9107817D500EDF004 /* SimpleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleModel.m; sourceTree = "<group>"; };
-		D315AD29107AFDEF00A3897D /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
-		D315AD2A107AFDEF00A3897D /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
 		D315AD4D107B00CF00A3897D /* NSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObject.h; sourceTree = "<group>"; };
 		D315AD4E107B00CF00A3897D /* NSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObject.m; sourceTree = "<group>"; };
 		D3874FC1107867FD00F290C2 /* NSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString.h; sourceTree = "<group>"; };
@@ -319,6 +279,10 @@
 		D3CA0B0C1079934300BBF55F /* SimpleModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleModelTest.m; sourceTree = "<group>"; };
 		D3CA0B561079BAF100BBF55F /* UIApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIApplication.h; sourceTree = "<group>"; };
 		D3CA0B571079BAF100BBF55F /* UIApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIApplication.m; sourceTree = "<group>"; };
+		D3D3AD76128C28420072AD4D /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
+		D3D3AD77128C28420072AD4D /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
+		D3D3AD7A128C28530072AD4D /* SDEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDEmployee.h; sourceTree = "<group>"; };
+		D3D3AD7B128C28530072AD4D /* SDEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDEmployee.m; sourceTree = "<group>"; };
 		D3D7D87B107C45EA00690C20 /* NSMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSMutableArray.h; sourceTree = "<group>"; };
 		D3D7D87C107C45EA00690C20 /* NSMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMutableArray.m; sourceTree = "<group>"; };
 		D3E864EF1077DCE40079694D /* SimpleStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleStore.h; sourceTree = "<group>"; };
@@ -326,17 +290,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
-				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
-				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
-				28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D387529210793D8000F290C2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -351,23 +304,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		080E96DDFE201D6D7F000001 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				D30234A41077FC8400EDF004 /* User.h */,
-				D30234A51077FC8400EDF004 /* User.m */,
-				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
-				28C286E00D94DF7D0034E888 /* RootViewController.m */,
-				1D3623240D0F684500981E51 /* SimpleDataAppDelegate.h */,
-				1D3623250D0F684500981E51 /* SimpleDataAppDelegate.m */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* SimpleData.app */,
 				D387529410793D8000F290C2 /* Test.app */,
 			);
 			name = Products;
@@ -379,34 +318,11 @@
 				D3875417107942FD00F290C2 /* Lib */,
 				D387528410793D5200F290C2 /* Test */,
 				D30234951077F59200EDF004 /* Doc */,
-				080E96DDFE201D6D7F000001 /* Classes */,
-				29B97315FDCFA39411CA2CEA /* Other Sources */,
-				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				D387529610793D8000F290C2 /* Test-Info.plist */,
 			);
 			name = CustomTemplate;
-			sourceTree = "<group>";
-		};
-		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
-			isa = PBXGroup;
-			children = (
-				28A0AAE50D9B0CCF005BE974 /* SimpleData_Prefix.pch */,
-				29B97316FDCFA39411CA2CEA /* main.m */,
-			);
-			name = "Other Sources";
-			sourceTree = "<group>";
-		};
-		29B97317FDCFA39411CA2CEA /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				28860B760F44E54D00985440 /* SimpleData.xcdatamodel */,
-				2899E55F0DE3E45000AC0155 /* RootViewController.xib */,
-				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
-				8D1107310486CEB800E47090 /* SimpleData-Info.plist */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
@@ -431,16 +347,18 @@
 		D387528410793D5200F290C2 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				D315AD29107AFDEF00A3897D /* Employee.h */,
-				D315AD2A107AFDEF00A3897D /* Employee.m */,
 				D38752C710793ED600F290C2 /* google-toolbox-for-mac */,
 				D387529E10793DD800F290C2 /* SimpleStoreTest.h */,
 				D387529F10793DD800F290C2 /* SimpleStoreTest.m */,
 				D38753F71079415900F290C2 /* test.xcdatamodel */,
+				D3D3AD76128C28420072AD4D /* Employee.h */,
+				D3D3AD77128C28420072AD4D /* Employee.m */,
 				D387544B1079466900F290C2 /* HelperTest.h */,
 				D387544C1079466900F290C2 /* HelperTest.m */,
 				D3CA0B0B1079934300BBF55F /* SimpleModelTest.h */,
 				D3CA0B0C1079934300BBF55F /* SimpleModelTest.m */,
+				D3D3AD7A128C28530072AD4D /* SDEmployee.h */,
+				D3D3AD7B128C28530072AD4D /* SDEmployee.m */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -789,23 +707,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* SimpleData */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "SimpleData" */;
-			buildPhases = (
-				1D60588D0D05DD3D006BFB54 /* Resources */,
-				1D60588E0D05DD3D006BFB54 /* Sources */,
-				1D60588F0D05DD3D006BFB54 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SimpleData;
-			productName = SimpleData;
-			productReference = 1D6058910D05DD3D006BFB54 /* SimpleData.app */;
-			productType = "com.apple.product-type.application";
-		};
 		D387529310793D8000F290C2 /* Test */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D387529910793D8100F290C2 /* Build configuration list for PBXNativeTarget "Test" */;
@@ -818,7 +719,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				D387529B10793D8F00F290C2 /* PBXTargetDependency */,
 			);
 			name = Test;
 			productName = Test;
@@ -832,6 +732,7 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "SimpleData" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -854,7 +755,6 @@
 			);
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* SimpleData */,
 				D387529310793D8000F290C2 /* Test */,
 			);
 		};
@@ -906,16 +806,6 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1D60588D0D05DD3D006BFB54 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
-				2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */,
-				D30234971077F5A300EDF004 /* Readme.textile in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D387529010793D8000F290C2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -942,25 +832,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1D60588E0D05DD3D006BFB54 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				1D3623260D0F684500981E51 /* SimpleDataAppDelegate.m in Sources */,
-				28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */,
-				28860B770F44E54D00985440 /* SimpleData.xcdatamodel in Sources */,
-				D3E864F11077DCE40079694D /* SimpleStore.m in Sources */,
-				D30234A61077FC8400EDF004 /* User.m in Sources */,
-				D30234D51077FDF300EDF004 /* SDTableViewController.m in Sources */,
-				D30234EA107817D500EDF004 /* SimpleModel.m in Sources */,
-				D3874FC3107867FD00F290C2 /* NSString.m in Sources */,
-				D3CA0B591079BB2500BBF55F /* UIApplication.m in Sources */,
-				D315AD50107B00CF00A3897D /* NSObject.m in Sources */,
-				D3D7D87E107C45EA00690C20 /* NSMutableArray.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D387529110793D8000F290C2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -976,21 +847,14 @@
 				D387544D1079466900F290C2 /* HelperTest.m in Sources */,
 				D3CA0B0D1079934300BBF55F /* SimpleModelTest.m in Sources */,
 				D3CA0B581079BAF100BBF55F /* UIApplication.m in Sources */,
-				D315AD2B107AFDEF00A3897D /* Employee.m in Sources */,
 				D315AD4F107B00CF00A3897D /* NSObject.m in Sources */,
 				D3D7D87D107C45EA00690C20 /* NSMutableArray.m in Sources */,
+				D3D3AD78128C28420072AD4D /* Employee.m in Sources */,
+				D3D3AD7C128C28530072AD4D /* SDEmployee.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D387529B10793D8F00F290C2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1D6058900D05DD3D006BFB54 /* SimpleData */;
-			targetProxy = D387529A10793D8F00F290C2 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D387535E10793ED700F290C2 /* MainMenu.nib */ = {
@@ -1004,32 +868,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		1D6058940D05DD3E006BFB54 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = SimpleData_Prefix.pch;
-				INFOPLIST_FILE = "SimpleData-Info.plist";
-				PRODUCT_NAME = SimpleData;
-			};
-			name = Debug;
-		};
-		1D6058950D05DD3E006BFB54 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = SimpleData_Prefix.pch;
-				INFOPLIST_FILE = "SimpleData-Info.plist";
-				PRODUCT_NAME = SimpleData;
-			};
-			name = Release;
-		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1039,7 +877,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1;
+				SDKROOT = iphoneos4.1;
 			};
 			name = Debug;
 		};
@@ -1052,7 +890,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1;
+				SDKROOT = iphoneos4.1;
 			};
 			name = Release;
 		};
@@ -1076,7 +914,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Test;
-				SDKROOT = iphoneos3.1;
+				SDKROOT = iphoneos4.1;
 			};
 			name = Debug;
 		};
@@ -1100,7 +938,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Test;
-				SDKROOT = iphoneos3.1;
+				SDKROOT = iphoneos4.1;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1108,15 +946,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "SimpleData" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1D6058940D05DD3E006BFB54 /* Debug */,
-				1D6058950D05DD3E006BFB54 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "SimpleData" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
