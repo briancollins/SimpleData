@@ -18,7 +18,7 @@
 
 
 - (void)setUp {
-    [SimpleStore storeWithPath:@"test.sqlite3"];
+	[SimpleStore storeWithPath:@"test.sqlite3"];
 	[SDEmployee createWithName:@"Quincey" dateOfBirth:DECEMBER_4TH starSign:@"Capricorn"];
 	[SDEmployee createWithName:@"Alex" dateOfBirth:DECEMBER_4TH starSign:@"Aries"];
 	[SDEmployee createWithName:@"Luna" dateOfBirth:DECEMBER_4TH starSign:@"Aries"];
@@ -35,6 +35,7 @@
 - (void)testCreateObject {
 	SDEmployee *employee = [SDEmployee createWithName:@"Brian"];
 	STAssertNotNULL(employee, @"Employee object should be created");
+	STAssertNotNULL([SDEmployee findByName:@"Brian"], @"Employee should be saved automatically");
 	STAssertEqualStrings(@"Brian", employee.name, @"Attribute should be set on creation");
 }
 
