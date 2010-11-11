@@ -29,7 +29,6 @@ static NSString *savedPath;
 
 
 + (NSString *)storePath:(NSString *)p {
-	NSLog(@"%@", [UIApplication documentsDirectory]);
 	if (![p hasSubstring:@"/"])
 		return [[UIApplication documentsDirectory] stringByAppendingPathComponent:p];
 	else 
