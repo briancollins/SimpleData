@@ -30,7 +30,7 @@ h2. Step 4: Create a SimpleStore
 * First, import the SimpleStore header
 <code>#import <SimpleStore.h></code>
 * To create or open an existing database simply call:
-<code>[SimpleStore storeWithPath: @"path"];</code>
+<code>[SimpleStore storeWithPath:@"path"];</code>
 
 h2. Step 5: Enjoy!
 * To create an object:
