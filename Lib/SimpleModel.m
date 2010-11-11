@@ -124,7 +124,7 @@
 
 + (void)forwardInvocation:(NSInvocation *)invocation {
 	NSString *sel;
-	if (sel = [self willForward:invocation.selector]) {
+	if ((sel = [self willForward:invocation.selector])) {
 		NSArray *attrs = [self attributesForInvocation:invocation withSelectorString:sel];
 		[invocation setArgument:&attrs atIndex:2];
 		[invocation setSelector:NSSelectorFromString([NSString stringWithFormat:@"_%@:", sel])];
@@ -181,7 +181,7 @@
 
 + (id)_findOrCreateWith:(NSMutableArray *)attributes {
 	id obj;
-	if (obj = [self find:[attributes objectAtIndex:1] inColumn:[attributes objectAtIndex:0]]) 
+	if ((obj = [self find:[attributes objectAtIndex:1] inColumn:[attributes objectAtIndex:0]])) 
 		return obj;
 	else 
 		return [self _createWith:attributes];
